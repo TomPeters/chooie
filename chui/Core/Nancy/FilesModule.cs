@@ -1,12 +1,12 @@
 ﻿using Nancy;
 
-namespace Core
+namespace Core.Nancy
 {
     public class FilesModule : NancyModule
     {
         public FilesModule()
         {
-            Get["/"] = parameters => "test";
+            Get["/"] = _ => Response.AsFile("static/index.html");
         }
     }
 }
