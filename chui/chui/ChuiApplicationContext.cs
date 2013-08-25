@@ -12,14 +12,14 @@ namespace chui
     {
         private const string NotifyIconText = "Chui";
         private readonly Uri _uri = new Uri("http://localhost:9876");
-        private readonly NancyHost nancyHost;
+        private readonly NancyHost _nancyHost;
         private NotifyIcon _notifyIcon;
 
         public ChuiApplicationContext()
         {
             Initialize();
-            nancyHost = new NancyHost(_uri);
-            nancyHost.Start();
+            _nancyHost = new NancyHost(new ChuiBootstrapper(), _uri);
+            _nancyHost.Start();
         }
 
         private void Initialize()
@@ -38,7 +38,7 @@ namespace chui
 
         private void exitItem_Click(object sender, EventArgs e)
         {
-            nancyHost.Stop();
+            _nancyHost.Stop();
             ExitThread();
         }
 
