@@ -1,8 +1,16 @@
-﻿namespace Core
+﻿using System;
+
+namespace Core
 {
     public class Package
     {
-        public string Name { get; set; }
-        public string Id { get; set; }
+        public String Name { get; set; }
+        public String InstalledVersion { get; set; }
+        public Boolean IsPreRelease { get; set; }
+
+        public new String ToString()
+        {
+            return Name;
+        }
     }
 }
