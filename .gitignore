@@ -111,3 +111,7 @@ build/*.exe
 build/*.config
 build/*.pdb
 build/*.dll
+build/*.manifest
+
+# Webstorm
+.idea

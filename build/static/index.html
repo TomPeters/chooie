@@ -1,1 +1,19 @@
-TEST INDEX FILE!!!! YEAH!!!!
+<html>
+    <head>
+        <meta set="utf8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <base href="/">
+        <title>Chui</title>
+        <link rel="icon" type="image/png" href="img/favicon.png">
+        <!--<link rel="stylesheet" href="css/bootstrap.css">-->
+    </head>
+    <body>
+        <div ng-app="chui">
+            <ng-include src="'templates/packages.html'"></ng-include>
+        </div>
+        <script src="js/lib/angular.js"></script>
+        <script src="js/chui/module.js"></script>
+        <script src="js/chui/packages/packagesController.js"></script>
+        <script src="js/chui/packages/packagesService.js"></script>
+    </body>
+</html>
