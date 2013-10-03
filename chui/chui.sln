@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "chui", "chui\chui.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{7823B209-CF38-4081-BCD5-FEDD7BA22939}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PackageManagers", "PackageManagers", "{B711C814-2A22-4C47-9A58-C0874FD32E2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chocolatey", "Chocolatey\Chocolatey.csproj", "{95E2444E-5EF8-488F-84EB-53AC5158F3B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,8 +23,15 @@ Global
 		{7823B209-CF38-4081-BCD5-FEDD7BA22939}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7823B209-CF38-4081-BCD5-FEDD7BA22939}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7823B209-CF38-4081-BCD5-FEDD7BA22939}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95E2444E-5EF8-488F-84EB-53AC5158F3B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95E2444E-5EF8-488F-84EB-53AC5158F3B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95E2444E-5EF8-488F-84EB-53AC5158F3B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95E2444E-5EF8-488F-84EB-53AC5158F3B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{95E2444E-5EF8-488F-84EB-53AC5158F3B0} = {B711C814-2A22-4C47-9A58-C0874FD32E2E}
 	EndGlobalSection
 EndGlobal

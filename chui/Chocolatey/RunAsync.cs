@@ -2,12 +2,12 @@
 using System.Management.Automation;
 using System.Text;
 
-namespace Core
+namespace Chocolatey
 {
-    public delegate void ResultsHandler(String result);
-    public delegate void EmptyHandler();
+    internal delegate void ResultsHandler(String result);
+    internal delegate void EmptyHandler();
 
-    public class RunSync
+    internal class RunSync
     {
         public void Run(String command)
         {
@@ -26,7 +26,7 @@ namespace Core
                 }
                 if (OutputChanged != null)
                 {
-                    Console.WriteLine("Result: {0}", result.ToString());
+                    Console.WriteLine("Result: {0}", result);
                     OutputChanged(result.ToString());
                 }
             }

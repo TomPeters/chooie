@@ -4,26 +4,24 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8FF71F59-029B-4080-A6FF-CAD83CBBC023}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <ProjectGuid>{95E2444E-5EF8-488F-84EB-53AC5158F3B0}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>chui</RootNamespace>
-    <AssemblyName>chui</AssemblyName>
+    <RootNamespace>Chocolatey</RootNamespace>
+    <AssemblyName>Chocolatey</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\build\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,38 +29,27 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ChuiApplicationContext.cs" />
-    <Compile Include="ChuiBootstrapper.cs" />
-    <Compile Include="Launcher.cs" />
-    <Compile Include="PackageManagerFactoriesProvider.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Nancy">
-      <HintPath>..\packages\Nancy.0.18.0\lib\net40\Nancy.dll</HintPath>
-    </Reference>
-    <Reference Include="Nancy.Hosting.Self">
-      <HintPath>..\packages\Nancy.Hosting.Self.0.18.0\lib\net40\Nancy.Hosting.Self.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\WindowsPowerShell\3.0\System.Management.Automation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="assets\chui.ico" />
+    <Compile Include="Chocolatey.cs" />
+    <Compile Include="ChocolateyFactory.cs" />
+    <Compile Include="PackageListRetriver.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RunAsync.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Chocolatey\Chocolatey.csproj">
-      <Project>{95e2444e-5ef8-488f-84eb-53ac5158f3b0}</Project>
-      <Name>Chocolatey</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{7823b209-cf38-4081-bcd5-fedd7ba22939}</Project>
       <Name>Core</Name>
