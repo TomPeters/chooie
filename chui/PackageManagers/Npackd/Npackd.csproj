@@ -4,26 +4,24 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8FF71F59-029B-4080-A6FF-CAD83CBBC023}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <ProjectGuid>{B28950AE-9FFD-441B-9389-E7F087754D62}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>chui</RootNamespace>
-    <AssemblyName>chui</AssemblyName>
+    <RootNamespace>Npackd</RootNamespace>
+    <AssemblyName>Npackd</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\build\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,50 +29,25 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ChuiApplicationContext.cs" />
-    <Compile Include="ChuiBootstrapper.cs" />
-    <Compile Include="PackageManager\ContainerFactory.cs" />
-    <Compile Include="PackageManager\IPackageManagerProvider.cs" />
-    <Compile Include="Launcher.cs" />
-    <Compile Include="Nancy\FilesModule.cs" />
-    <Compile Include="Nancy\PackagesModule.cs" />
-    <Compile Include="PackageManager\PackageManagerProvider.cs" />
-    <Compile Include="PackageManager\AssemblyLoader.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Nancy">
-      <HintPath>..\packages\Nancy.0.18.0\lib\net40\Nancy.dll</HintPath>
-    </Reference>
-    <Reference Include="Nancy.Hosting.Self">
-      <HintPath>..\packages\Nancy.Hosting.Self.0.18.0\lib\net40\Nancy.Hosting.Self.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="assets\chui.ico" />
+    <Compile Include="Npackd.cs" />
+    <Compile Include="NpackdModule.cs" />
+    <Compile Include="PackageListRetriever.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\chui.Core\chui.Core.csproj">
+    <ProjectReference Include="..\..\chui.Core\chui.Core.csproj">
       <Project>{7823b209-cf38-4081-bcd5-fedd7ba22939}</Project>
       <Name>chui.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PackageManagers\Chocolatey\Chocolatey.csproj">
-      <Project>{95e2444e-5ef8-488f-84eb-53ac5158f3b0}</Project>
-      <Name>Chocolatey</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PackageManagers\Npackd\Npackd.csproj">
-      <Project>{b28950ae-9ffd-441b-9389-e7f087754d62}</Project>
-      <Name>Npackd</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

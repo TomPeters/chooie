@@ -22,7 +22,7 @@ namespace chui
             Initialize();
             var packageManagerProvider = new PackageManagerProvider(new ContainerFactory(), new AssemblyLoader());
             packageManagerProvider.BuildContainers();
-            var packageManagerSettings = new PackageManagerSettings {PackageManagerType = "Chocolatey"};
+            var packageManagerSettings = new PackageManagerSettings {PackageManagerType = "Npackd"};
             _nancyHost = new NancyHost(new ChuiBootstrapper(packageManagerSettings, packageManagerProvider), _uri);
             _nancyHost.Start();
         }
