@@ -6,9 +6,9 @@ namespace Core.Nancy
 {
     public class PackagesModule : NancyModule
     {
-        public PackagesModule(IPackageManagerProvider packageManagerProvider)
+        public PackagesModule(IPackageManager packageManager)
         {
-            Get["/packages"] = _ => Response.AsJson(packageManagerProvider.GetPackageManager().Packages.ToList());
+            Get["/packages"] = _ => Response.AsJson(packageManager.Packages.ToList());
         }
     }
 }
