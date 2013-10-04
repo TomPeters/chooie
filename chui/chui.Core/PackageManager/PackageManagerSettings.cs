@@ -1,4 +1,4 @@
-﻿namespace Core.PackageManager
+﻿namespace chui.Core.PackageManager
 {
     public class PackageManagerSettings
     {

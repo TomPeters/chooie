@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Core;
-using Core.PackageManager;
+using chui.Core;
+using chui.Core.PackageManager;
 
 namespace Chocolatey
 {
@@ -10,7 +10,7 @@ namespace Chocolatey
 
         private IEnumerable<Package> _packages;
 
-        internal Chocolatey(PackageListRetriver packageListRetriver)
+        public Chocolatey(PackageListRetriver packageListRetriver)
         {
             _packageListRetriver = packageListRetriver;
         }

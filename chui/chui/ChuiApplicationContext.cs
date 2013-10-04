@@ -4,6 +4,8 @@ using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 using Nancy.Hosting.Self;
+using chui.Core.PackageManager;
+using chui.PackageManager;
 
 
 namespace chui
@@ -18,7 +20,10 @@ namespace chui
         public ChuiApplicationContext()
         {
             Initialize();
-            _nancyHost = new NancyHost(new ChuiBootstrapper(), _uri);
+            var packageManagerProvider = new PackageManagerProvider(new ContainerFactory(), new AssemblyLoader());
+            packageManagerProvider.BuildContainers();
+            var packageManagerSettings = new PackageManagerSettings {PackageManagerType = "Chocolatey"};
+            _nancyHost = new NancyHost(new ChuiBootstrapper(packageManagerSettings, packageManagerProvider), _uri);
             _nancyHost.Start();
         }
 

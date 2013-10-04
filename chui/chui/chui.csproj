@@ -41,8 +41,13 @@
   <ItemGroup>
     <Compile Include="ChuiApplicationContext.cs" />
     <Compile Include="ChuiBootstrapper.cs" />
+    <Compile Include="PackageManager\ContainerFactory.cs" />
+    <Compile Include="PackageManager\IPackageManagerProvider.cs" />
     <Compile Include="Launcher.cs" />
-    <Compile Include="PackageManagerFactoriesProvider.cs" />
+    <Compile Include="Nancy\FilesModule.cs" />
+    <Compile Include="Nancy\PackagesModule.cs" />
+    <Compile Include="PackageManager\PackageManagerProvider.cs" />
+    <Compile Include="PackageManager\AssemblyLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Nancy">
@@ -59,13 +64,13 @@
     <EmbeddedResource Include="assets\chui.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Chocolatey\Chocolatey.csproj">
+    <ProjectReference Include="..\chui.Core\chui.Core.csproj">
+      <Project>{7823b209-cf38-4081-bcd5-fedd7ba22939}</Project>
+      <Name>chui.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PackageManagers\Chocolatey\Chocolatey.csproj">
       <Project>{95e2444e-5ef8-488f-84eb-53ac5158f3b0}</Project>
       <Name>Chocolatey</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Core\Core.csproj">
-      <Project>{7823b209-cf38-4081-bcd5-fedd7ba22939}</Project>
-      <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

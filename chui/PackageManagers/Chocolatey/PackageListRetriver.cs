@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Core;
+using chui.Core;
 
 namespace Chocolatey
 {
-    internal class PackageListRetriver
+    public class PackageListRetriver
     {
         private const string Url = @"http://chocolatey.org/api/v2";
         private readonly IList<string> _lines = new List<string>();

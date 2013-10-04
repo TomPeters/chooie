@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Core
+namespace chui.Core
 {
     public class Package
     {

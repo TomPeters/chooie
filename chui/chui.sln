@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "chui", "chui\chui.csproj", "{8FF71F59-029B-4080-A6FF-CAD83CBBC023}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{7823B209-CF38-4081-BCD5-FEDD7BA22939}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PackageManagers", "PackageManagers", "{B711C814-2A22-4C47-9A58-C0874FD32E2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chocolatey", "Chocolatey\Chocolatey.csproj", "{95E2444E-5EF8-488F-84EB-53AC5158F3B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "chui.Core", "chui.Core\chui.Core.csproj", "{7823B209-CF38-4081-BCD5-FEDD7BA22939}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chocolatey", "PackageManagers\Chocolatey\Chocolatey.csproj", "{95E2444E-5EF8-488F-84EB-53AC5158F3B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

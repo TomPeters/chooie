@@ -1,6 +1,6 @@
-﻿using Core.PackageManager;
-using Nancy;
+﻿using Nancy;
 using System.Linq;
+using chui.Core.PackageManager;
 
 namespace Core.Nancy
 {
