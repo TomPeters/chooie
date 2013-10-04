@@ -1,6 +1,6 @@
 ﻿using Nancy;
 
-namespace Core.Nancy
+namespace chui.Nancy
 {
     public class FilesModule : NancyModule
     {

@@ -2,7 +2,7 @@
 using System.Linq;
 using chui.Core.PackageManager;
 
-namespace Core.Nancy
+namespace chui.Nancy
 {
     public class PackagesModule : NancyModule
     {
