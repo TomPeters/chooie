@@ -3,4 +3,11 @@ angular.module('chui').controller("PackagesController", ['$scope', 'PackagesServ
         packagesService.getPackages().success(function(result) {
             $scope.packages = result;
         });
+
+        $scope.installPackage = function(package) {
+            console.log("install package " + package.Name);
+            packagesService.installPackage(package).success(function() {
+                console.log("package installed " + package.Name);
+            });
+        }
 }]);

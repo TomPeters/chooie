@@ -34,5 +34,10 @@ namespace chui.PackageManager
                 return _packages;
             }
         }
+
+        public void InstallPackage(Package package)
+        {
+            PackageManager.InstallPackage(package);
+        }
     }
 }

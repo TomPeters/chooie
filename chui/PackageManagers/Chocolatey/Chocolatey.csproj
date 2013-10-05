@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Chocolatey.cs" />
     <Compile Include="ChocolateyModule.cs" />
+    <Compile Include="PackageInstaller.cs" />
     <Compile Include="PackageListRetriver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RunAsync.cs" />

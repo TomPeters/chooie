@@ -7,10 +7,12 @@ namespace Chocolatey
     public class Chocolatey : IPackageManager
     {
         private readonly PackageListRetriver _packageListRetriver;
+        private readonly PackageInstaller _packageInstaller;
 
-        public Chocolatey(PackageListRetriver packageListRetriver)
+        public Chocolatey(PackageListRetriver packageListRetriver, PackageInstaller packageInstaller)
         {
             _packageListRetriver = packageListRetriver;
+            _packageInstaller = packageInstaller;
         }
 
         public IEnumerable<Package> Packages
@@ -19,6 +21,11 @@ namespace Chocolatey
             {
                 return _packageListRetriver.Packages;
             }
+        }
+
+        public void InstallPackage(Package package)
+        {
+            _packageInstaller.InstallPackage(package);
         }
     }
 }

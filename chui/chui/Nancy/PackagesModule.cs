@@ -1,5 +1,7 @@
 ﻿using Nancy;
+using Nancy.ModelBinding;
 using System.Linq;
+using chui.Core;
 using chui.Core.PackageManager;
 
 namespace chui.Nancy
@@ -9,6 +11,11 @@ namespace chui.Nancy
         public PackagesModule(IPackageManager packageManager)
         {
             Get["/packages"] = _ => Response.AsJson(packageManager.Packages.ToList());
+            Post["/packages/install"] = _ =>
+                {
+                    packageManager.InstallPackage(this.Bind<Package>());
+                    return HttpStatusCode.OK;
+                };
         }
     }
 }

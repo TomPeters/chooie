@@ -20,5 +20,10 @@ namespace Npackd
                 return _packageListRetriever.GetPackages();
             }
         }
+
+        public void InstallPackage(Package package)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
