@@ -8,8 +8,6 @@ namespace Chocolatey
     {
         private readonly PackageListRetriver _packageListRetriver;
 
-        private IEnumerable<Package> _packages;
-
         public Chocolatey(PackageListRetriver packageListRetriver)
         {
             _packageListRetriver = packageListRetriver;
@@ -19,11 +17,7 @@ namespace Chocolatey
         {
             get
             {
-                if (_packages == null)
-                {
-                    _packages = _packageListRetriver.Packages;
-                }
-                return _packages;
+                return _packageListRetriver.Packages;
             }
         }
     }

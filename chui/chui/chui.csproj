@@ -46,6 +46,7 @@
     <Compile Include="Launcher.cs" />
     <Compile Include="Nancy\FilesModule.cs" />
     <Compile Include="Nancy\PackagesModule.cs" />
+    <Compile Include="PackageManager\PackageManagerProxy.cs" />
     <Compile Include="PackageManager\PackageManagerProvider.cs" />
     <Compile Include="PackageManager\AssemblyLoader.cs" />
   </ItemGroup>

@@ -26,7 +26,7 @@ namespace chui.PackageManager
             {
                 throw new ConfigurationException("Package Manager should not be manually configured in the dependency injection container");
             }
-            container.Register(PackageManagerType, packageManagerType).AsSingleton();
+            container.Register(PackageManagerType, packageManagerType);
             return container;
         }
 

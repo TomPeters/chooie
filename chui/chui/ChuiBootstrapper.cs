@@ -29,7 +29,8 @@ namespace chui
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
             container.Register(_packageManagerSettings);
-            container.Register((c, p) => _packageManagerProvider.GetPackageManager(c.Resolve<PackageManagerSettings>().PackageManagerType));
+            var packageManagerProxy = new PackageManagerProxy(_packageManagerProvider, _packageManagerSettings);
+            container.Register<IPackageManager>(packageManagerProxy);
         }
     }
 }
