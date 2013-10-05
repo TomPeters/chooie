@@ -41,7 +41,7 @@ namespace Npackd
             return new Package()
                 {
                     Name = String.Join(" ", packageNameWords),
-                    InstalledVersion = packageVersion
+                    CurrentVersion = packageVersion
                 };
         }
     }

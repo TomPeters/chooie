@@ -39,7 +39,7 @@ namespace Chocolatey
                 {
                     var name = packageLine.Split(" ".ToCharArray()[0])[0];
                     var version = packageLine.Split(" ".ToCharArray()[0])[1];
-                    _packages.Add(new Package { Name = name, InstalledVersion = version });
+                    _packages.Add(new Package { Name = name, CurrentVersion = version });
                 }
                 catch
                 {
