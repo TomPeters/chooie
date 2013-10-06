@@ -12,8 +12,7 @@ namespace chui
         {
             try
             {
-                //Launch SignalR
-                WebApp.Start<SignalRStartup>();
+                WebApp.Start<SignalRStartup>("http://*:8080");
 
                 var applicationContext = new ChuiApplicationContext();
                 Application.Run(applicationContext);
