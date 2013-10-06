@@ -23,7 +23,9 @@ namespace chui
             var packageManagerProvider = new PackageManagerProvider(new ContainerFactory(), new AssemblyLoader());
             packageManagerProvider.BuildContainers();
             var packageManagerSettings = new PackageManagerSettings {PackageManagerType = "Chocolatey"};
-            _nancyHost = new NancyHost(new ChuiBootstrapper(packageManagerSettings, packageManagerProvider), _uri);
+            var hostConfiguration = new HostConfiguration();
+            hostConfiguration.UrlReservations.CreateAutomatically = true;
+            _nancyHost = new NancyHost(new ChuiBootstrapper(packageManagerSettings, packageManagerProvider), hostConfiguration, _uri);
             _nancyHost.Start();
         }
 
