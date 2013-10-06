@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using chui.Core;
 
 namespace Chocolatey
@@ -7,44 +9,41 @@ namespace Chocolatey
     public class PackageListRetriver
     {
         private const string Url = @"http://chocolatey.org/api/v2";
-        private readonly IList<string> _lines = new List<string>();
-        private readonly IList<Package> _packages = new List<Package>();
-
         public IEnumerable<Package> Packages
         {
             get
             {
-                var powershellCommandRunner = new RunSync();
-                powershellCommandRunner.OutputChanged += OutputChanged;
-                powershellCommandRunner.RunFinished += RunFinished;
-                powershellCommandRunner.Run("clist -source " + Url);
-                return _packages;
+                Process p = new Process();
+                // Redirect the output stream of the child process.
+                p.StartInfo.UseShellExecute = false;
+                p.StartInfo.RedirectStandardOutput = true;
+                p.StartInfo.FileName = "cmd.exe";
+                p.StartInfo.Arguments = "/C clist -source " + Url;
+                p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                Console.WriteLine("Running Command");
+                p.Start();
+                string output = p.StandardOutput.ReadToEnd();
+                p.WaitForExit();
+                Console.WriteLine("Parsing output");
+                return ConvertCommandOutputToPackages(output);
             }
         }
 
-        private void OutputChanged(string line)
+        private IEnumerable<Package> ConvertCommandOutputToPackages(string output)
         {
-            Console.WriteLine("Output changed: {0}", line);
-            foreach (var package in line.Split(new [] { Environment.NewLine }, StringSplitOptions.None))
-            {
-                _lines.Add(package);
-            }
+            return output.Split('\n').Select(ConvertPackageLineToPackage).Where(p => p != null);
         }
 
-        private void RunFinished()
+        private Package ConvertPackageLineToPackage(string packageLine)
         {
-            foreach (var packageLine in _lines)
-            {
-                try
+            string[] words = packageLine.Split(' ');
+            if (words.Length != 2) return null;
+            return new Package()
                 {
-                    var name = packageLine.Split(" ".ToCharArray()[0])[0];
-                    var version = packageLine.Split(" ".ToCharArray()[0])[1];
-                    _packages.Add(new Package { Name = name, CurrentVersion = version });
-                }
-                catch
-                {
-                }
-            }
+                    Name = words[0],
+                    CurrentVersion = words[1]
+                };
         }
     }
 }

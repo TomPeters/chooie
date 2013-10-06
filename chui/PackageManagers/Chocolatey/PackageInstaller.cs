@@ -1,4 +1,5 @@
-﻿using chui.Core;
+﻿using System;
+using chui.Core;
 
 namespace Chocolatey
 {
@@ -6,8 +7,7 @@ namespace Chocolatey
     {
         public void InstallPackage(Package package)
         {
-            var powershellCommandRunner = new RunSync();
-            powershellCommandRunner.Run("cinst " + package.Name);
+            throw new NotImplementedException();
         } 
     }
 }
