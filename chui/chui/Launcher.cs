@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using Microsoft.Owin.Hosting;
+using chui.SignalR;
 
 namespace chui
 {
@@ -10,6 +12,9 @@ namespace chui
         {
             try
             {
+                //Launch SignalR
+                WebApp.Start<SignalRStartup>();
+
                 var applicationContext = new ChuiApplicationContext();
                 Application.Run(applicationContext);
             }

@@ -32,8 +32,20 @@ namespace chui.PackageManager
 
         private bool IsPackageManagerAssembly(Assembly assembly)
         {
-            Type[] types = assembly.GetTypes();
+            IEnumerable<Type> types = GetAssemblyTypes(assembly);
             return types.Count(t => ContainerFactory.PackageManagerModuleType.IsAssignableFrom(t)) == 1;
+        }
+
+        private static IEnumerable<Type> GetAssemblyTypes(Assembly assembly)
+        {
+            try
+            {
+                return assembly.GetTypes();
+            }
+            catch (Exception ex)
+            {
+                return new List<Type>();
+            }
         }
 
         public IPackageManager GetPackageManager(string packageManager)

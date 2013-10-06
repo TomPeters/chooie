@@ -13,9 +13,21 @@ namespace chui.PackageManager
             var currentlyLoadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
             string currentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string[] files = Directory.GetFiles(currentDirectory, "*.dll");
-            IEnumerable<Assembly> loadedAssemblies = files.Select(Assembly.LoadFile);
+            IEnumerable<Assembly> loadedAssemblies = files.Select(LoadAssembly).Where(a => a != null);
             IEnumerable<Assembly> newlyLoadedAssemblies = loadedAssemblies.Where(a => !currentlyLoadedAssemblies.Contains(a));
             return newlyLoadedAssemblies;
+        }
+
+        private static Assembly LoadAssembly(string f)
+        {
+            try
+            {
+                return Assembly.LoadFile(f);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
     }
 }
