@@ -42,10 +42,12 @@
     <Compile Include="ChuiApplicationContext.cs" />
     <Compile Include="ChuiBootstrapper.cs" />
     <Compile Include="PackageManager\ContainerFactory.cs" />
+    <Compile Include="PackageManager\IPackageManagerDirector.cs" />
     <Compile Include="PackageManager\IPackageManagerProvider.cs" />
     <Compile Include="Launcher.cs" />
     <Compile Include="Nancy\FilesModule.cs" />
     <Compile Include="Nancy\PackagesModule.cs" />
+    <Compile Include="PackageManager\IPackageManagerProxy.cs" />
     <Compile Include="PackageManager\PackageManagerProxy.cs" />
     <Compile Include="PackageManager\PackageManagerProvider.cs" />
     <Compile Include="PackageManager\AssemblyLoader.cs" />
