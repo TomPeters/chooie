@@ -8,11 +8,14 @@ namespace chui
 {
     public class Launcher
     {
+        private const string SignalRUrl = "http://+:8080/";
+
         public static void Main(string[] args)
         {
             try
             {
-                WebApp.Start<SignalRStartup>("http://*:8080");
+                new UrlAclConfigurer().ConfigureUrl(SignalRUrl);
+                WebApp.Start<SignalRStartup>(SignalRUrl);
 
                 var applicationContext = new ChuiApplicationContext();
                 Application.Run(applicationContext);
@@ -21,6 +24,8 @@ namespace chui
             {
                 var file = new StreamWriter("log.txt");
                 file.WriteLine(ex.Message);
+                file.WriteLine(ex.StackTrace);
+                file.WriteLine(ex.InnerException.Message);
                 file.Close();
             }
         }

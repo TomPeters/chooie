@@ -50,6 +50,7 @@
     <Compile Include="PackageManager\PackageManagerProvider.cs" />
     <Compile Include="PackageManager\AssemblyLoader.cs" />
     <Compile Include="SignalR\ClientMessenger.cs" />
+    <Compile Include="SignalR\UrlAclConfigurer.cs" />
     <Compile Include="SignalR\IClientMessenger.cs" />
     <Compile Include="SignalR\MessageHub.cs" />
     <Compile Include="SignalR\SignalRStartup.cs" />

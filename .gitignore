@@ -113,6 +113,7 @@ build/*.pdb
 build/*.dll
 build/*.manifest
 build/*.xml
+build/*.txt
 
 # Webstorm
 .idea
