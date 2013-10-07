@@ -1,4 +1,5 @@
-﻿using Owin;
+﻿using Microsoft.AspNet.SignalR;
+using Owin;
 
 namespace chui.SignalR
 {
@@ -6,7 +7,7 @@ namespace chui.SignalR
     {
         public void Configuration(IAppBuilder app)
         {
-            app.MapSignalR();
+            app.MapSignalR(new HubConfiguration() { EnableJSONP = true });
         }
     }
 }

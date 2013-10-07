@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using chui.Core;
 using chui.Core.PackageManager;
+using chui.SignalR;
 
 namespace chui.PackageManager
 {
@@ -21,7 +23,7 @@ namespace chui.PackageManager
             get { return _packageManagerProvider.GetPackageManager(_packageManagerSettings.PackageManagerType); }
         }
 
-        private IEnumerable<Package> _packages; 
+        private IList<Package> _packages; 
 
         public IEnumerable<Package> Packages
         {
@@ -29,7 +31,7 @@ namespace chui.PackageManager
             {
                 if (_packages == null)
                 {
-                    _packages = PackageManager.Packages;
+                    _packages = PackageManager.Packages.ToList();
                 }
                 return _packages;
             }

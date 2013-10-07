@@ -4,9 +4,9 @@ namespace chui.SignalR
 {
     public class MessageHub : Hub
     {
-        public void Send(string message)
+        public void Send(string dispatchId, string message)
         {
-            //Clients.All.addMessage(message);
+            Clients.All.sendMessage(dispatchId, message);
         }
     }
 }
