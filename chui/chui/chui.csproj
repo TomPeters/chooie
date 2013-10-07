@@ -41,6 +41,16 @@
   <ItemGroup>
     <Compile Include="ChuiApplicationContext.cs" />
     <Compile Include="ChuiBootstrapper.cs" />
+    <Compile Include="Jobs\IJob.cs" />
+    <Compile Include="Jobs\IJobFactory.cs" />
+    <Compile Include="Jobs\IJobListUpdater.cs" />
+    <Compile Include="Jobs\IJobQueue.cs" />
+    <Compile Include="Jobs\Job.cs" />
+    <Compile Include="Jobs\JobFactory.cs" />
+    <Compile Include="Jobs\JobListUpdater.cs" />
+    <Compile Include="Jobs\JobQueue.cs" />
+    <Compile Include="Jobs\JobState.cs" />
+    <Compile Include="Nancy\JobsModule.cs" />
     <Compile Include="PackageManager\ContainerFactory.cs" />
     <Compile Include="PackageManager\IPackageManagerDirector.cs" />
     <Compile Include="PackageManager\IPackageManagerProvider.cs" />

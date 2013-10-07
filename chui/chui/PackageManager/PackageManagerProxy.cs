@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using chui.Core;
 using chui.Core.PackageManager;
+using chui.Jobs;
 using chui.SignalR;
 
 namespace chui.PackageManager
@@ -12,14 +13,17 @@ namespace chui.PackageManager
         private readonly IPackageManagerProvider _packageManagerProvider;
         private readonly PackageManagerSettings _packageManagerSettings;
         private readonly IClientMessenger _clientMessenger;
-
+        private readonly IJobFactory _jobFactory;
 
         public PackageManagerProxy(IPackageManagerProvider packageManagerProvider, 
-            PackageManagerSettings packageManagerSettings, IClientMessenger clientMessenger)
+            PackageManagerSettings packageManagerSettings, 
+            IClientMessenger clientMessenger, 
+            IJobFactory jobFactory)
         {
             _packageManagerProvider = packageManagerProvider;
             _packageManagerSettings = packageManagerSettings;
             _clientMessenger = clientMessenger;
+            _jobFactory = jobFactory;
         }
 
         private IPackageManager PackageManager
@@ -44,12 +48,11 @@ namespace chui.PackageManager
 
         public void UpdatePackages(string dispatchId)
         {
-            // TODO: Pull this out to a job class so we can keep track of and report progress
-            new Thread(() =>
+            _jobFactory.CreateJob("Update Packages", () =>
                 {
                     _packages = PackageManager.Packages.ToList();
                     _clientMessenger.SendMessage(dispatchId, "Packages Updated");
-                }).Start();
+                });
         }
     }
 }

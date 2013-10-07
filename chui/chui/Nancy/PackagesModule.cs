@@ -1,9 +1,7 @@
 ﻿using System;
 using Nancy;
 using Nancy.ModelBinding;
-using System.Linq;
 using chui.Core;
-using chui.Core.PackageManager;
 using chui.PackageManager;
 
 namespace chui.Nancy
@@ -12,7 +10,7 @@ namespace chui.Nancy
     {
         public PackagesModule(IPackageManagerProxy packageManager)
         {
-            Get["/packages"] = _ => Response.AsJson(packageManager.Packages.ToList());
+            Get["/packages"] = _ => Response.AsJson(packageManager.Packages);
             Post["/packages/update"] = _ =>
                 {
                     var dispatchId = Guid.NewGuid().ToString();

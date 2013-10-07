@@ -2,6 +2,7 @@
 using Nancy.Conventions;
 using Nancy.TinyIoc;
 using chui.Core.PackageManager;
+using chui.Jobs;
 using chui.PackageManager;
 using chui.SignalR;
 
@@ -29,11 +30,16 @@ namespace chui
 
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
+            container.Register<IJobFactory, JobFactory>();
+            container.Register<IJobListUpdater, JobListUpdater>();
+            container.Register<IJobQueue, JobQueue>().AsSingleton();
+
             container.Register<IClientMessenger, ClientMessenger>().AsSingleton();
             container.Register(_packageManagerSettings);
-            var packageManagerProxy = new PackageManagerProxy(_packageManagerProvider, _packageManagerSettings, container.Resolve<IClientMessenger>());
+            var packageManagerProxy = new PackageManagerProxy(_packageManagerProvider, _packageManagerSettings, container.Resolve<IClientMessenger>(), container.Resolve<IJobFactory>());
             container.Register<IPackageManager>(packageManagerProxy);
             container.Register<IPackageManagerProxy>(packageManagerProxy);
+            
         }
     }
 }
