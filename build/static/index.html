@@ -9,6 +9,7 @@
     </head>
     <body>
         <div ng-app="chui">
+            <ng-include src="'templates/jobs.html'"></ng-include>
             <ng-include src="'templates/packages.html'"></ng-include>
         </div>
         <script src="js/lib/jquery-2.0.3.js"></script>
@@ -18,6 +19,8 @@
         <script src="js/services/clientMessenger.js"></script>
         <script src="js/chui/packages/packagesController.js"></script>
         <script src="js/chui/packages/packagesService.js"></script>
+        <script src="js/chui/jobs/jobsController.js"></script>
+        <script src="js/chui/jobs/jobsService.js"></script>
         <script src="js/lib/jquery.signalR-2.0.0-rc1.js"></script>
         <!--TODO: Don't hardcode localhost here-->
         <script src="http://localhost:8080/signalr/hubs"></script>

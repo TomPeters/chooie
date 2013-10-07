@@ -20,7 +20,15 @@ namespace chui.Jobs
 
         public IEnumerable<IJob> Jobs
         {
-            get { return _completedJobs.Concat(_pendingJobs); }
+            get
+            {
+                IList<IJob> jobs = _completedJobs.ToList();
+                if (_runningJob != null)
+                {
+                    jobs.Add(_runningJob);
+                }
+                return jobs.Concat(_pendingJobs);
+            }
         }
         
         public void EnqueuJob(string name, Action action)
@@ -38,12 +46,13 @@ namespace chui.Jobs
         }
 
         private void RunJobs()
-        {
+        { 
             if (!_pendingJobs.Any()) return;
 
             _runningJob = _pendingJobs.Dequeue();
             _runningJob.Run();
             _completedJobs.Add(_runningJob);
+            _runningJob = null;
             RunJobs();
         }
     }

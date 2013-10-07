@@ -36,7 +36,7 @@ namespace chui
 
             container.Register<IClientMessenger, ClientMessenger>().AsSingleton();
             container.Register(_packageManagerSettings);
-            var packageManagerProxy = new PackageManagerProxy(_packageManagerProvider, _packageManagerSettings, container.Resolve<IClientMessenger>(), container.Resolve<IJobFactory>());
+            var packageManagerProxy = new PackageManagerProxy(_packageManagerProvider, _packageManagerSettings, container.Resolve<IClientMessenger>(), container.Resolve<IJobQueue>());
             container.Register<IPackageManager>(packageManagerProxy);
             container.Register<IPackageManagerProxy>(packageManagerProxy);
             

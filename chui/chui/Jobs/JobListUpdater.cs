@@ -4,7 +4,7 @@ namespace chui.Jobs
 {
     public class JobListUpdater : IJobListUpdater
     {
-        private const string DispatchId = "Job List";
+        private const string DispatchId = "JobList";
 
         private readonly IClientMessenger _clientMessenger;
 

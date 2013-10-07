@@ -13,17 +13,17 @@ namespace chui.PackageManager
         private readonly IPackageManagerProvider _packageManagerProvider;
         private readonly PackageManagerSettings _packageManagerSettings;
         private readonly IClientMessenger _clientMessenger;
-        private readonly IJobFactory _jobFactory;
+        private readonly IJobQueue _jobQueue;
 
         public PackageManagerProxy(IPackageManagerProvider packageManagerProvider, 
             PackageManagerSettings packageManagerSettings, 
             IClientMessenger clientMessenger, 
-            IJobFactory jobFactory)
+            IJobQueue jobQueue)
         {
             _packageManagerProvider = packageManagerProvider;
             _packageManagerSettings = packageManagerSettings;
             _clientMessenger = clientMessenger;
-            _jobFactory = jobFactory;
+            _jobQueue = jobQueue;
         }
 
         private IPackageManager PackageManager
@@ -48,7 +48,7 @@ namespace chui.PackageManager
 
         public void UpdatePackages(string dispatchId)
         {
-            _jobFactory.CreateJob("Update Packages", () =>
+            _jobQueue.EnqueuJob("Update Packages", () =>
                 {
                     _packages = PackageManager.Packages.ToList();
                     _clientMessenger.SendMessage(dispatchId, "Packages Updated");
