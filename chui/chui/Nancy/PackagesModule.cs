@@ -13,9 +13,8 @@ namespace chui.Nancy
             Get["/packages"] = _ => Response.AsJson(packageManager.Packages);
             Post["/packages/update"] = _ =>
                 {
-                    var dispatchId = Guid.NewGuid().ToString();
-                    packageManager.UpdatePackages(dispatchId);
-                    return Response.AsJson(dispatchId);
+                    packageManager.UpdatePackages();
+                    return HttpStatusCode.OK;
                 };
             Post["/packages/install"] = _ =>
                 {

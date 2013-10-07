@@ -46,12 +46,12 @@ namespace chui.PackageManager
             PackageManager.InstallPackage(package);
         }
 
-        public void UpdatePackages(string dispatchId)
+        public void UpdatePackages()
         {
             _jobQueue.EnqueuJob("Update Packages", () =>
                 {
                     _packages = PackageManager.Packages.ToList();
-                    _clientMessenger.SendMessage(dispatchId, "Packages Updated");
+                    _clientMessenger.SendMessage("Packages", "Updated");
                 });
         }
     }

@@ -1,5 +1,5 @@
 <div ng-controller="PackagesController">
-    <p>Currently updating packages? {{updatingStatus}}</p>
+    <button ng-click="updatePackages()">Update Packages</button>
     <ul>
         <li ng-repeat="package in packages">
             <span>{{package.Name}}</span>
