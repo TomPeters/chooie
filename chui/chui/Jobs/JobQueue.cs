@@ -31,7 +31,7 @@ namespace chui.Jobs
             }
         }
         
-        public void EnqueuJob(string name, Action action)
+        public void EnqueueJob(string name, Action action)
         {
             _pendingJobs.Enqueue(_jobFactory.CreateJob(name, action));
             RunJobsIfNotExecuting();

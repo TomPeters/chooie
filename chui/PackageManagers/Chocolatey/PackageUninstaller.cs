@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Security.Policy;
 using chui.Core;
 
 namespace Chocolatey
 {
-    public class PackageInstaller
+    public class PackageUninstaller
     {
-        public void InstallPackage(Package package)
+        public void UninstallPackage(Package package)
         {
             Process p = new Process();
             // Redirect the output stream of the child process.
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardOutput = true;
             p.StartInfo.FileName = "cmd.exe";
-            p.StartInfo.Arguments = "/C cinst " + package.Name;
+            p.StartInfo.Arguments = "/C cuninst " + package.Name;
             p.StartInfo.CreateNoWindow = true;
             p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             Console.WriteLine("Running Command");

@@ -10,6 +10,10 @@ angular.module('chui').factory("PackagesService", ['$http', function($http) {
 
         installPackage: function(package) {
             return $http.post('/packages/install', package);
+        },
+
+        uninstallPackage: function(package) {
+            return $http.post('/packages/uninstall', package);
         }
     }
 }]);

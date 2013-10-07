@@ -3,13 +3,13 @@ angular.module('chui').controller("PackagesController", ['$scope', 'PackagesServ
 
         var updatePackages = function() {
             packagesService.updatePackages();
-        }
+        };
 
         var getPackages = function() {
             packagesService.getPackages().success(function(result) {
                 $scope.packages = result;
             });
-        }
+        };
 
         $scope.updatePackages = updatePackages;
         clientMessenger.registerCallback("Packages", getPackages);
@@ -17,8 +17,11 @@ angular.module('chui').controller("PackagesController", ['$scope', 'PackagesServ
 
         $scope.installPackage = function(package) {
             console.log("install package " + package.Name);
-            packagesService.installPackage(package).success(function() {
-                console.log("package installed " + package.Name);
-            });
-        }
+            packagesService.installPackage(package)
+        };
+
+        $scope.uninstallPackage = function(package) {
+            console.log("uninstalling package " + package.Name);
+            packagesService.uninstallPackage(package)
+        };
 }]);

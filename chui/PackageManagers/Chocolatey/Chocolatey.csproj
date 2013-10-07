@@ -43,6 +43,7 @@
     <Compile Include="ChocolateyModule.cs" />
     <Compile Include="PackageInstaller.cs" />
     <Compile Include="PackageListRetriver.cs" />
+    <Compile Include="PackageUninstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

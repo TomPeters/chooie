@@ -25,5 +25,10 @@ namespace Npackd
         {
             throw new System.NotImplementedException();
         }
+
+        public void UninstallPackage(Package package)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

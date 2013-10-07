@@ -1,9 +1,16 @@
 <div ng-controller="PackagesController">
-    <button ng-click="updatePackages()">Update Packages</button>
+    <div>
+        <button ng-click="updatePackages()">Update Packages</button>
+    </div>
+    <div ng-show="packages">
+        Search:
+        <input ng-model="packageFilter.Name"/>
+    </div>
     <ul>
-        <li ng-repeat="package in packages">
+        <li ng-repeat="package in packages | filter:packageFilter">
             <span>{{package.Name}}</span>
-            <span>{{package.Id}}</span>
+            <button ng-click="installPackage(package)">Install</button>
+            <button ng-click="uninstallPackage(package)">Uninstall</button>
         </li>
     </ul>
 </div>

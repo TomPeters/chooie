@@ -6,6 +6,6 @@ namespace chui.Jobs
     public interface IJobQueue
     {
         IEnumerable<IJob> Jobs { get; }
-        void EnqueuJob(string name, Action action);
+        void EnqueueJob(string name, Action action);
     }
 }

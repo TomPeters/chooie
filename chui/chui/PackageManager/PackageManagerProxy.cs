@@ -43,12 +43,17 @@ namespace chui.PackageManager
 
         public void InstallPackage(Package package)
         {
-            PackageManager.InstallPackage(package);
+            _jobQueue.EnqueueJob("Installing Package: " + package.Name, () => PackageManager.InstallPackage(package));
+        }
+
+        public void UninstallPackage(Package package)
+        {
+            _jobQueue.EnqueueJob("Uninstalling Package: " + package.Name, () => PackageManager.UninstallPackage(package));
         }
 
         public void UpdatePackages()
         {
-            _jobQueue.EnqueuJob("Update Packages", () =>
+            _jobQueue.EnqueueJob("Update Packages", () =>
                 {
                     _packages = PackageManager.Packages.ToList();
                     _clientMessenger.SendMessage("Packages", "Updated");

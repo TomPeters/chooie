@@ -21,6 +21,12 @@ namespace chui.Nancy
                     packageManager.InstallPackage(this.Bind<Package>());
                     return HttpStatusCode.OK;
                 };
+
+            Post["/packages/uninstall"] = _ =>
+                {
+                    packageManager.UninstallPackage(this.Bind<Package>());
+                    return HttpStatusCode.OK;
+                };
         }
     }
 }
