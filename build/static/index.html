@@ -5,15 +5,22 @@
         <base href="/">
         <title>Chui</title>
         <link rel="icon" type="image/png" href="img/favicon.png">
-        <!--<link rel="stylesheet" href="css/bootstrap.css">-->
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/pane.css">
+
     </head>
-    <body>
-        <div ng-app="chui">
-            <ng-include src="'templates/jobs.html'"></ng-include>
-            <ng-include src="'templates/packages.html'"></ng-include>
+    <body ng-app="chui">
+
+
+        <div class="container">
+
+            <ng-include src="'templates/navbar.html'"></ng-include>
+            <ng-include src="'templates/viewport.html'"></ng-include>
+
         </div>
         <script src="js/lib/jquery-2.0.3.js"></script>
         <script src="js/lib/angular.js"></script>
+        <script src="js/lib/bootstrap.js"></script>
         <script src="js/chui/module.js"></script>
         <script src="js/services/signalRCallbacks.js"></script>
         <script src="js/services/clientMessenger.js"></script>
