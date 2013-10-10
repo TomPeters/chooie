@@ -11,20 +11,16 @@
             <span class="package-name"> {{package.Name}} </span>
             <span class="muted package-version"> {{package.CurrentVersion}} </span>
 
-                <div class="btn-group pull-right">
-                    <a class="btn" href="#"><i class="icon-ok"></i></a>
-                    <a class="btn" href="#"><i class="icon-remove"></i></a>
-                    <a class="btn" href="#"><i class="icon-share-alt"></i></a>
-                </div>
+            <div class="btn-group pull-right">
+                <a class="btn" href="#"><i class="icon-ok"></i></a>
+                <a class="btn" href="#"><i class="icon-remove"></i></a>
+                <a class="btn" href="#"><i class="icon-share-alt"></i></a>
+            </div>
 
-            <!--<div ng-show="false">-->
-                <!--<button class="btn btn-small" ng-click="installPackage(package)">Install</button>-->
-                <!--<button ng-click="uninstallPackage(package)">Uninstall</button>-->
-            <!--</div>-->
-
+            <div ng-show="false">
+                <button ng-click="installPackage(package)">Install</button>
+                <button ng-click="uninstallPackage(package)">Uninstall</button>
+            </div>
         </li>
-
-
-
     </ul>
 </div>
