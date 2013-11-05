@@ -1,4 +1,4 @@
-angular.module('chui').factory("ClientMessenger", ["SignalRCallbacks", function(callbacks) {
+angular.module('chooie').factory("ClientMessenger", ["SignalRCallbacks", function(callbacks) {
     return {
         registerCallback: function(dispatchId, callback) {
             if(!callbacks[dispatchId]) {

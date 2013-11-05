@@ -1,4 +1,4 @@
-angular.module('chui').service("SignalRCallbacks", [function() {
+angular.module('chooie').service("SignalRCallbacks", [function() {
     $.connection.hub.url = "http://localhost:8080/signalr"; // TODO: Remove hardcoded localhost domain
     var hub = $.connection.messageHub;
     var callbacks = {};
