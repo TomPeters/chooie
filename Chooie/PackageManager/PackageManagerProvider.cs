@@ -52,5 +52,10 @@ namespace Chooie.PackageManager
         {
             return _containers[packageManager].Resolve<IPackageManager>();
         }
+
+        public string GetInitialPackageManagerType()
+        {
+            return _containers.First().Key;
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace Chooie
             Initialize();
             var packageManagerProvider = new PackageManagerProvider(new ContainerFactory(), new AssemblyLoader());
             packageManagerProvider.BuildContainers();
-            var packageManagerSettings = new PackageManagerSettings {PackageManagerType = "Chocolatey"};
+            var packageManagerSettings = new PackageManagerSettings {PackageManagerType = packageManagerProvider.GetInitialPackageManagerType() };
             var hostConfiguration = new HostConfiguration();
             hostConfiguration.UrlReservations.CreateAutomatically = true;
             _nancyHost = new NancyHost(new ChooieBootstrapper(packageManagerSettings, packageManagerProvider), hostConfiguration, _uri);
