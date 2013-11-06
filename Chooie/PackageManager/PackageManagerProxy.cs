@@ -13,16 +13,19 @@ namespace Chooie.PackageManager
         private readonly PackageManagerSettings _packageManagerSettings;
         private readonly IClientMessenger _clientMessenger;
         private readonly IJobQueue _jobQueue;
+        private readonly IPackageList _packageList;
 
         public PackageManagerProxy(IPackageManagerProvider packageManagerProvider, 
             PackageManagerSettings packageManagerSettings, 
             IClientMessenger clientMessenger, 
-            IJobQueue jobQueue)
+            IJobQueue jobQueue,
+            IPackageList packageList)
         {
             _packageManagerProvider = packageManagerProvider;
             _packageManagerSettings = packageManagerSettings;
             _clientMessenger = clientMessenger;
             _jobQueue = jobQueue;
+            _packageList = packageList;
         }
 
         private IPackageManager PackageManager
@@ -30,13 +33,11 @@ namespace Chooie.PackageManager
             get { return _packageManagerProvider.GetPackageManager(_packageManagerSettings.PackageManagerType); }
         }
 
-        private IList<Package> _packages = new List<Package>(); 
-
         public IEnumerable<Package> Packages
         {
             get
             {
-                return _packages;
+                return _packageList.Packages;
             }
         }
 
@@ -54,7 +55,7 @@ namespace Chooie.PackageManager
         {
             _jobQueue.EnqueueJob("Update Packages", () =>
                 {
-                    _packages = PackageManager.Packages.ToList();
+                    _packageList.Packages = PackageManager.Packages.ToList();
                     _clientMessenger.SendMessage("Packages", "Updated");
                 });
         }

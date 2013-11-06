@@ -24,7 +24,7 @@ namespace Chooie.PackageManager
             {
                 return Assembly.LoadFile(f);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }

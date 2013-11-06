@@ -32,14 +32,14 @@ namespace Chooie
         {
             container.Register<IJobFactory, JobFactory>();
             container.Register<IJobListUpdater, JobListUpdater>();
+            container.Register<IPackageList, PackageList>().AsSingleton(); // TODO: Remove when this class becomes a db wrapper
             container.Register<IJobQueue, JobQueue>().AsSingleton();
 
             container.Register<IClientMessenger, ClientMessenger>().AsSingleton();
             container.Register(_packageManagerSettings);
-            var packageManagerProxy = new PackageManagerProxy(_packageManagerProvider, _packageManagerSettings, container.Resolve<IClientMessenger>(), container.Resolve<IJobQueue>());
+            var packageManagerProxy = new PackageManagerProxy(_packageManagerProvider, _packageManagerSettings, container.Resolve<IClientMessenger>(), container.Resolve<IJobQueue>(), container.Resolve<IPackageList>());
             container.Register<IPackageManager>(packageManagerProxy);
             container.Register<IPackageManagerProxy>(packageManagerProxy);
-            
         }
     }
 }

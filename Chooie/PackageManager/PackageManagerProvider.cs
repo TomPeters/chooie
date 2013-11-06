@@ -42,7 +42,7 @@ namespace Chooie.PackageManager
             {
                 return assembly.GetTypes();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<Type>();
             }
