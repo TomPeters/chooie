@@ -13,7 +13,8 @@ namespace Chooie
     public class ChooieApplicationContext : ApplicationContext
     {
         private const string NotifyIconText = "Chooie";
-        private readonly Uri _uri = new Uri("http://localhost:9876");
+        private const string Uri = "http://localhost:9876/";
+        private readonly Uri _uri = new Uri(Uri);
         private readonly NancyHost _nancyHost;
         private NotifyIcon _notifyIcon;
 
@@ -41,12 +42,18 @@ namespace Chooie
                     Text = NotifyIconText,
                     Icon = new Icon(Assembly.GetEntryAssembly().GetManifestResourceStream("Chooie.assets.Chooie.ico"))
                 };
+            _notifyIcon.DoubleClick += OnDoubleClick;
         }
 
         private void exitItem_Click(object sender, EventArgs e)
         {
             _nancyHost.Stop();
             ExitThread();
+        }
+
+        private void OnDoubleClick(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(Uri);
         }
 
         protected override void ExitThreadCore()
