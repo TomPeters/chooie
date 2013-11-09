@@ -1,25 +1,13 @@
 <div ng-controller="PackagesController">
-    <div>
-        <button ng-click="updatePackages()">Update Packages</button>
-    </div>
-    <div ng-show="packages">
-        Search:
-        <input ng-model="packageFilter.Name"/>
-    </div>
     <ul class="list-group">
         <li class="list-group-item" ng-repeat="package in packages | filter:packageFilter">
             <span class="package-name"> {{package.Name}} </span>
             <span class="muted package-version"> {{package.CurrentVersion}} </span>
 
             <div class="btn-group pull-right">
-                <a class="btn" href="#"><i class="icon-ok"></i></a>
-                <a class="btn" href="#"><i class="icon-remove"></i></a>
-                <a class="btn" href="#"><i class="icon-share-alt"></i></a>
-            </div>
-
-            <div ng-show="false">
-                <button ng-click="installPackage(package)">Install</button>
-                <button ng-click="uninstallPackage(package)">Uninstall</button>
+                <a class="btn" ng-click="installPackage(package)"><i class="icon-ok"></i></a>
+                <a class="btn" ng-click="uninstallPackage(package)"><i class="icon-remove"></i></a>
+                <a class="btn"><i class="icon-share-alt"></i></a>
             </div>
         </li>
     </ul>

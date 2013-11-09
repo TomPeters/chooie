@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="css/packages.css">
     </head>
     <body ng-app="chooie">
-        <div class="container">
+        <div class="container" ng-controller="PageController">
             <ng-include src="'templates/navbar.html'"></ng-include>
             <ng-include src="'templates/viewport.html'"></ng-include>
         </div>
@@ -21,6 +21,7 @@
         <script src="js/chooie/module.js"></script>
         <script src="js/services/signalRCallbacks.js"></script>
         <script src="js/services/clientMessenger.js"></script>
+        <script src="js/chooie/pageController.js"></script>
         <script src="js/chooie/packages/packagesController.js"></script>
         <script src="js/chooie/packages/packagesService.js"></script>
         <script src="js/chooie/jobs/jobsController.js"></script>
