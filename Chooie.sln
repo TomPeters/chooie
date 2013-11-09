@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chooie.Core", "Chooie.Core\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chooie", "Chooie\Chooie.csproj", "{8FF71F59-029B-4080-A6FF-CAD83CBBC023}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chooie.Test", "Chooie.Test\Chooie.Test.csproj", "{75A6D9BD-C0CE-440B-87BB-B46CA62434A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{8FF71F59-029B-4080-A6FF-CAD83CBBC023}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FF71F59-029B-4080-A6FF-CAD83CBBC023}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FF71F59-029B-4080-A6FF-CAD83CBBC023}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75A6D9BD-C0CE-440B-87BB-B46CA62434A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75A6D9BD-C0CE-440B-87BB-B46CA62434A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75A6D9BD-C0CE-440B-87BB-B46CA62434A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75A6D9BD-C0CE-440B-87BB-B46CA62434A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using Chooie.Database;
 using Microsoft.Owin.Hosting;
 using Chooie.SignalR;
 
@@ -16,6 +17,10 @@ namespace Chooie
             {
                 new UrlAclConfigurer().ConfigureUrl(SignalRUrl);
                 WebApp.Start<SignalRStartup>(SignalRUrl);
+
+                // Create Database File if required
+                if(!File.Exists(DatabaseAccessor.DatabaseFile))
+                    using (StreamWriter writer = File.AppendText(DatabaseAccessor.DatabaseFile)) { }
 
                 var applicationContext = new ChooieApplicationContext();
                 Application.Run(applicationContext);

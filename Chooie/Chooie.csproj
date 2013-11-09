@@ -56,6 +56,10 @@
   <ItemGroup>
     <Compile Include="ChooieApplicationContext.cs" />
     <Compile Include="ChooieBootstrapper.cs" />
+    <Compile Include="Database\DatabaseAccessor.cs" />
+    <Compile Include="Database\DatabaseManager.cs" />
+    <Compile Include="Database\IDatabaseAccessor.cs" />
+    <Compile Include="Database\IDatabaseManager.cs" />
     <Compile Include="Jobs\IJob.cs" />
     <Compile Include="Jobs\IJobFactory.cs" />
     <Compile Include="Jobs\IJobListUpdater.cs" />
@@ -158,6 +162,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
