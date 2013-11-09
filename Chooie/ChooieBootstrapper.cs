@@ -1,4 +1,5 @@
-﻿using Nancy;
+﻿using Chooie.Database;
+using Nancy;
 using Nancy.Conventions;
 using Nancy.TinyIoc;
 using Chooie.Core.PackageManager;
@@ -37,6 +38,8 @@ namespace Chooie
 
             container.Register<IClientMessenger, ClientMessenger>().AsSingleton();
             container.Register(_packageManagerSettings);
+            container.Register<IDatabaseManager, DatabaseManager>().AsSingleton();
+            container.Register<IDatabaseAccessor, DatabaseAccessor>().AsSingleton();
             var packageManagerProxy = new PackageManagerProxy(_packageManagerProvider, _packageManagerSettings, container.Resolve<IClientMessenger>(), container.Resolve<IJobQueue>(), container.Resolve<IPackageList>());
             container.Register<IPackageManager>(packageManagerProxy);
             container.Register<IPackageManagerProxy>(packageManagerProxy);
