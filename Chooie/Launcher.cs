@@ -30,7 +30,6 @@ namespace Chooie
                 var file = new StreamWriter("log.txt");
                 file.WriteLine(ex.Message);
                 file.WriteLine(ex.StackTrace);
-                file.WriteLine(ex.InnerException.Message);
                 file.Close();
             }
         }
