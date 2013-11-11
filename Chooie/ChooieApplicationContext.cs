@@ -18,15 +18,17 @@ namespace Chooie
         private readonly NancyHost _nancyHost;
         private NotifyIcon _notifyIcon;
 
-        public ChooieApplicationContext()
+        public ChooieApplicationContext(DependencyContainerBuilder dependencyContainerBuilder)
         {
+            dependencyContainerBuilder.Logger.LogInfo("Configuring system tray icon");
             Initialize();
-            var packageManagerProvider = new PackageManagerProvider(new ContainerFactory(), new AssemblyLoader());
-            packageManagerProvider.BuildContainers();
-            var packageManagerSettings = new PackageManagerSettings {PackageManagerType = packageManagerProvider.GetInitialPackageManagerType() };
+
+            dependencyContainerBuilder.Logger.LogInfo("Configuring web server");
             var hostConfiguration = new HostConfiguration();
             hostConfiguration.UrlReservations.CreateAutomatically = true;
-            _nancyHost = new NancyHost(new ChooieBootstrapper(packageManagerSettings, packageManagerProvider), hostConfiguration, _uri);
+            _nancyHost = new NancyHost(new ChooieBootstrapper(dependencyContainerBuilder), hostConfiguration, _uri);
+
+            dependencyContainerBuilder.Logger.LogInfo("Starting web server");
             _nancyHost.Start();
         }
 

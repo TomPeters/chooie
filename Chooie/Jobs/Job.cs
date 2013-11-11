@@ -1,4 +1,5 @@
 ﻿using System;
+using Chooie.Core.Logging;
 
 namespace Chooie.Jobs
 {
@@ -7,12 +8,14 @@ namespace Chooie.Jobs
         private readonly string _name;
         private readonly Action _action;
         private readonly IJobListUpdater _jobListUpdater;
+        private readonly ILogger _logger;
 
-        public Job(string name, Action action, IJobListUpdater jobListUpdater)
+        public Job(string name, Action action, IJobListUpdater jobListUpdater, ILogger logger)
         {
             _name = name;
             _action = action;
             _jobListUpdater = jobListUpdater;
+            _logger = logger;
             State = JobState.Pending;
         }
 
@@ -20,13 +23,16 @@ namespace Chooie.Jobs
         {
             try
             {
+                _logger.LogInfo("Running Job: " + Name);
                 State = JobState.Running;
                 _action();
                 State = JobState.Finished;
+                _logger.LogInfo("Finished Job: " + Name);
             }
             catch (Exception)
             {
                 State = JobState.Error;
+                _logger.LogError("Job Failed: " + Name);
             }
         }
 

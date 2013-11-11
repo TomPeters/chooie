@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using Chooie.Core.Logging;
 
 namespace Chooie.Jobs
 {
     public class JobQueue : IJobQueue
     {
+        private readonly ILogger _logger;
         private readonly IJobFactory _jobFactory;
 
-        public JobQueue(IJobFactory jobFactory)
+        public JobQueue(ILogger logger, IJobFactory jobFactory)
         {
+            _logger = logger;
             _jobFactory = jobFactory;
         }
 
@@ -33,6 +36,7 @@ namespace Chooie.Jobs
         
         public void EnqueueJob(string name, Action action)
         {
+            _logger.LogInfo("Job added: " + name);
             _pendingJobs.Enqueue(_jobFactory.CreateJob(name, action));
             RunJobsIfNotExecuting();
         }

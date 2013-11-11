@@ -60,6 +60,7 @@
     <Compile Include="Database\DatabaseManager.cs" />
     <Compile Include="Database\IDatabaseAccessor.cs" />
     <Compile Include="Database\IDatabaseManager.cs" />
+    <Compile Include="DependencyContainerBuilder.cs" />
     <Compile Include="Jobs\IJob.cs" />
     <Compile Include="Jobs\IJobFactory.cs" />
     <Compile Include="Jobs\IJobListUpdater.cs" />
@@ -69,6 +70,16 @@
     <Compile Include="Jobs\JobListUpdater.cs" />
     <Compile Include="Jobs\JobQueue.cs" />
     <Compile Include="Jobs\JobState.cs" />
+    <Compile Include="Logging\CompositeLog.cs" />
+    <Compile Include="Logging\Context.cs" />
+    <Compile Include="Logging\FileLog.cs" />
+    <Compile Include="Logging\IContext.cs" />
+    <Compile Include="Logging\ILog.cs" />
+    <Compile Include="Logging\IMemoryLog.cs" />
+    <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Logging\LogMessage.cs" />
+    <Compile Include="Logging\MemoryLog.cs" />
+    <Compile Include="Logging\Severity.cs" />
     <Compile Include="Nancy\JobsModule.cs" />
     <Compile Include="PackageManager\ContainerFactory.cs" />
     <Compile Include="PackageManager\IPackageManagerProvider.cs" />

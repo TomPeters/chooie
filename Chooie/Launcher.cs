@@ -13,24 +13,30 @@ namespace Chooie
 
         public static void Main(string[] args)
         {
+            var dependencyContainerBuilder = new DependencyContainerBuilder();
             try
             {
+                dependencyContainerBuilder.Logger.LogInfo("Attempting to configure urls for signal R");
                 new UrlAclConfigurer().ConfigureUrl(SignalRUrl);
+                dependencyContainerBuilder.Logger.LogInfo("Starting signal R at " + SignalRUrl);
                 WebApp.Start<SignalRStartup>(SignalRUrl);
 
-                // Create Database File if required
-                if(!File.Exists(DatabaseAccessor.DatabaseFile))
+                if (!File.Exists(DatabaseAccessor.DatabaseFile))
+                {
+                    dependencyContainerBuilder.Logger.LogInfo("Creating database");
                     using (StreamWriter writer = File.AppendText(DatabaseAccessor.DatabaseFile)) { }
+                }
+                    
+                var applicationContext = new ChooieApplicationContext(dependencyContainerBuilder);
 
-                var applicationContext = new ChooieApplicationContext();
+                dependencyContainerBuilder.Logger.LogInfo("Starting chooie (entering main loop)");
                 Application.Run(applicationContext);
             }
+
             catch (Exception ex)
             {
-                var file = new StreamWriter("log.txt");
-                file.WriteLine(ex.Message);
-                file.WriteLine(ex.StackTrace);
-                file.Close();
+                dependencyContainerBuilder.Logger.LogError(ex.Message);
+                dependencyContainerBuilder.Logger.LogError(ex.StackTrace);
             }
         }
     }
