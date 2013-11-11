@@ -1,0 +1,23 @@
+
+.main-pane{
+    float: left;
+    margin-left: 8px;
+    width: 70%;
+    border: 1px solid ;
+    border-color: #f89406;
+}
+
+.side-pane{
+    float: right;
+    margin-right: 8px;
+    width: 25%;
+    border: 1px solid ;
+    border-color: #f89406;
+    font-family: monospace;
+    font-size: 12px;
+
+}
+
+span {
+    width:40%;
+}

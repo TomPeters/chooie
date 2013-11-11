@@ -5,9 +5,9 @@
             <span class="muted package-version"> {{package.CurrentVersion}} </span>
 
             <div class="btn-group pull-right">
-                <a class="btn" ng-click="installPackage(package)"><i class="icon-ok"></i></a>
-                <a class="btn" ng-click="uninstallPackage(package)"><i class="icon-remove"></i></a>
-                <a class="btn"><i class="icon-share-alt"></i></a>
+                <a ng-click="installPackage(package)">Install</a>
+                <a ng-click="uninstallPackage(package)">Remove</a>
+                <a>Update</a>
             </div>
         </li>
     </ul>

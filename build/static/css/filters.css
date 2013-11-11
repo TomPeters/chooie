@@ -1,4 +1,13 @@
 input[type="text"].package-search {
+    display: inline-block;
+    font-size: large;
+    height: 40px;
+    width: 400px;
+    margin-top: 15px;
+}
+
+input[type="radio"].radio {
+    display: block;
     font-size: large;
     height: 40px;
     width: 400px;

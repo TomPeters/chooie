@@ -1,0 +1,34 @@
+/*!
+ * Here begins Jess's attempt at CSS
+ *
+ */
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+button {
+    display: inline-block;
+    width:20%;
+    font-size: medium;
+    background: linear-gradient(#a1e048, #6a942f);
+    border: 1px solid;
+    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+    border-radius: 4px;
+    margin: 5px;
+    padding:5px;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+}
+
+button:hover {
+    background: linear-gradient(#6a942f,#a1e048)
+}
+
+a {
+    cursor: pointer;
+}
+
+a:hover {
+    font-style: oblique;}
