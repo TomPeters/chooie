@@ -3,6 +3,7 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Reflection;
 using System.Linq;
+using Chooie.Core.Logging;
 using Chooie.Core.PackageManager;
 using Chooie.Core.TinyIoC;
 
@@ -10,8 +11,14 @@ namespace Chooie.PackageManager
 {
     public class ContainerFactory
     {
+        private readonly ILogger _logger;
         public static readonly Type PackageManagerModuleType = typeof(IPackageManagerModule);
         private static readonly Type PackageManagerType = typeof (IPackageManager);
+
+        public ContainerFactory(ILogger logger)
+        {
+            _logger = logger;
+        }
 
         public TinyIoCContainer BuildContainer(Assembly assembly)
         {
@@ -27,6 +34,7 @@ namespace Chooie.PackageManager
                 throw new ConfigurationException("Package Manager should not be manually configured in the dependency injection container");
             }
             container.Register(PackageManagerType, packageManagerType);
+            container.Register(_logger);
             return container;
         }
 

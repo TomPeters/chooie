@@ -34,7 +34,7 @@ namespace Chooie
             {
                 if (_packageManagerProvider == null)
                 {
-                    var packageManagerProvider = new PackageManagerProvider(new ContainerFactory(), new AssemblyLoader());
+                    var packageManagerProvider = new PackageManagerProvider(new ContainerFactory(Logger), new AssemblyLoader());
                     packageManagerProvider.BuildContainers();
                     _packageManagerProvider = packageManagerProvider;
                 }
