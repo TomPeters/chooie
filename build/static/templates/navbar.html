@@ -1,3 +1,9 @@
 <div class="navbar">
-        <ng-include src="'templates/filters.html'"></ng-include>
+    <div class="container-navbar">
+        <ng-include class="filters" src="'templates/filters.html'"></ng-include>
+        <div class="navbar-right">
+            <button class="update-button">Settings</button>
+            <button class="update-button" ng-click="updatePackages()">Update Packages</button>
+        </div>
+    </div>
 </div>

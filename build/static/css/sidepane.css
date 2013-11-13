@@ -1,0 +1,11 @@
+.sidepane {
+    border: 1px solid #5bb75b;
+    padding: 4px;
+    background-color: #363636;
+    color: #ebebeb;
+    height: 40%;
+}
+
+.sidepane-button {
+    width: 40%;
+}
