@@ -6,18 +6,19 @@ using System.Linq;
 using Chooie.Core.Logging;
 using Chooie.Core.PackageManager;
 using Chooie.Core.TinyIoC;
+using Chooie.Logging;
 
 namespace Chooie.PackageManager
 {
     public class ContainerFactory
     {
-        private readonly ILogger _logger;
+        private readonly ILog _log;
         public static readonly Type PackageManagerModuleType = typeof(IPackageManagerModule);
         private static readonly Type PackageManagerType = typeof (IPackageManager);
 
-        public ContainerFactory(ILogger logger)
+        public ContainerFactory(ILog log)
         {
-            _logger = logger;
+            _log = log;
         }
 
         public TinyIoCContainer BuildContainer(Assembly assembly)
@@ -34,7 +35,8 @@ namespace Chooie.PackageManager
                 throw new ConfigurationException("Package Manager should not be manually configured in the dependency injection container");
             }
             container.Register(PackageManagerType, packageManagerType);
-            container.Register(_logger);
+            var logger = new Logger(new Context(packageManagerType.ToString()), _log);
+            container.Register<ILogger>(logger);
             return container;
         }
 

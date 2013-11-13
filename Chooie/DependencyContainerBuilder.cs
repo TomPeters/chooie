@@ -34,7 +34,7 @@ namespace Chooie
             {
                 if (_packageManagerProvider == null)
                 {
-                    var packageManagerProvider = new PackageManagerProvider(new ContainerFactory(Logger), new AssemblyLoader());
+                    var packageManagerProvider = new PackageManagerProvider(new ContainerFactory(Log), new AssemblyLoader());
                     packageManagerProvider.BuildContainers();
                     _packageManagerProvider = packageManagerProvider;
                 }
@@ -64,13 +64,27 @@ namespace Chooie
             {
                 if (_logger == null)
                 {
-                    _logger = new Logger(new Context("Chooie"), new CompositeLog(new List<ILog>
+                    _logger = new Logger(new Context("Chooie"), Log);
+                }
+                return _logger;
+            }
+        }
+
+        private ILog _log;
+
+        public ILog Log
+        {
+            get
+            {
+                if (_log == null)
+                {
+                    _log = new CompositeLog(new List<ILog>
                         {
                             new FileLog("log.txt"), // TODO: Don't hardcode this here - it should be a part of settings
                             MemoryLog
-                        }));
+                        });
                 }
-                return _logger;
+                return _log;
             }
         }
 
