@@ -1,5 +1,6 @@
 .navbar {
-    background-color: #999999;
+    background: linear-gradient(#eeeeee, #b3b3b3);
+    border-bottom: 1px #fafafa solid;
 }
 
 .navbar-right {

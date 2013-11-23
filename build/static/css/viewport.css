@@ -1,16 +1,13 @@
 
 .main-pane{
     float: left;
-    margin-left: 8px;
     width: 60%;
-    border: 1px solid #f89406;
 }
 
 .side-pane{
     float: right;
     margin-right: 8px;
     width: 35%;
-    border: 1px solid #f89406;
     font-family: monospace;
     font-size: 12px;
 

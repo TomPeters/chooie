@@ -9,18 +9,20 @@ html {
 body {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 14px;
+    margin: 0;
 
 }
 
 button {
     display: inline-block;
-    background: linear-gradient(#a1e048, #6a942f);
+    background: linear-gradient(lightslategray, slategrey);
     border: 1px solid;
     border-color: #e6e6e6 #e6e6e6 #bfbfbf;
     border-radius: 4px;
     margin: 5px;
     padding:5px;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    color: white;
+    text-shadow: 0 1px 1px grey;
     cursor: pointer;
 }
 
@@ -39,17 +41,17 @@ a:hover {
 
 
 .container-viewport {
-    border: 3px solid #5bb75b;
     max-width: 800px;
     overflow-y: auto;
+    padding-top: 5px;
     margin: 0 auto;
-    padding: 5px;
 }
 
 .container-navbar {
-    border: 3px solid #5bb75b;
     max-width: 800px;
     overflow-y: auto;
-    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 5px;
     margin: 0 auto;
+
 }
