@@ -2,8 +2,10 @@
     <div class="container-navbar">
         <ng-include class="filters" src="'templates/filters.html'"></ng-include>
         <div class="navbar-right">
-            <button class="update-button">Settings</button>
-            <button class="update-button" ng-click="updatePackages()">Update Packages</button>
+            <button class="navbar-button" ng-click="updatePackages()">
+                Update Packages
+            </button>
+            <button class="navbar-button settings settings-icon"></button>
         </div>
     </div>
 </div>
