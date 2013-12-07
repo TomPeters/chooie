@@ -1,7 +1,16 @@
-<div class="sidepane">
-    <ng-include src="'templates/jobs.html'"></ng-include>
-    <button class="sidepane-button">Jobs</button>
-    <button class="sidepane-button">Log</button>
+<div class="sidepane" ng-controller="SidepaneController">
+    <div class="sidepane-content">
+        <div ng-show="jobsTabsIsDisplayed">
+            <ng-include src="'templates/jobs.html'"></ng-include>
+        </div>
+        <div ng-show="logTabsIsDisplayed">
+            <ng-include src="'templates/log.html'"></ng-include>
+        </div>
+    </div>
+    <div class="sidepane-bottom-tabs">
+        <button class="sidepane-button" ng-click="switchToTab('jobs')">Jobs</button>
+        <button class="sidepane-button" ng-click="switchToTab('log')">Log</button>
+    </div>
 </div>
 
 

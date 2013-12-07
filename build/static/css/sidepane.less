@@ -6,8 +6,6 @@
   padding: 4px;
   background-color: #363636;
   color: #ebebeb;
-  font-family: monospace;
-  font-size: 12px;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -16,5 +14,24 @@
 }
 
 .sidepane-button {
-    width: 40%;
+  width: 40%;
+}
+
+@tab-container-height: 40px;
+
+.sidepane-bottom-tabs{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: @tab-container-height;
+}
+
+.sidepane-content{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: @tab-container-height;
+  overflow: auto;
 }
