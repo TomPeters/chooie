@@ -1,23 +1,13 @@
-<div class="row">
-    <div class="span6">
-        <input type="text" class="package-search" placeholder="Search" ng-model="packageFilter.Name">
-    </div>
-    <div class="span2">
-        <label class="radio">
-            <input type="radio" name="installation-filter" value="option1" checked>
-            All
-        </label>
-        <label class="radio">
-            <input type="radio" name="installation-filter" value="option2">
-            Installed
-        </label>
-        <label class="radio">
-            <input type="radio" name="installation-filter" value="option3">
-            Not installed
-        </label>
-    </div>
-
-    <div class="span2">
-        <button class="btn" ng-click="updatePackages()">Update Packages</button>
-    </div>
-</div>
+    <input type="text" class="package-search" placeholder="Search" ng-model="packageFilter.Name">
+    <label class="radio">
+        <input type="radio" name="installation-filter" value="option1" checked>
+        All
+    </label>
+    <label class="radio">
+        <input type="radio" name="installation-filter" value="option2">
+        Installed
+    </label>
+    <label class="radio">
+        <input type="radio" name="installation-filter" value="option3">
+        Not installed
+    </label>

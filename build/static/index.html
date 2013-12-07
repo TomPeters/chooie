@@ -5,15 +5,19 @@
         <base href="/">
         <title>Chooie</title>
         <link rel="icon" type="image/png" href="img/favicon.png">
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/pane.css">
-        <link rel="stylesheet" href="css/filters.css">
-        <link rel="stylesheet" href="css/packages.css">
-        <link rel="stylesheet" href="css/images.css">
+        <link rel="stylesheet/less" href="css/chooie.less">
+        <link rel="stylesheet/less" href="css/navbar.less">
+        <link rel="stylesheet/less" href="css/jobs.less">
+        <link rel="stylesheet/less" href="css/filters.less">
+        <link rel="stylesheet/less" href="css/packages.less">
+        <link rel="stylesheet/less" href="css/images.less">
+        <link rel="stylesheet/less" href="css/viewport.less">
+        <link rel="stylesheet/less" href="css/sidepane.less">
+        <!--TODO: eventually remove bootstrap file!-->
+        <script src="js/lib/less-1.5.0.min.js" type="text/javascript"></script>
     </head>
     <body ng-app="chooie">
-        <div class="container" ng-controller="PageController">
+        <div ng-controller="PageController">
             <ng-include src="'templates/navbar.html'"></ng-include>
             <ng-include src="'templates/viewport.html'"></ng-include>
         </div>
