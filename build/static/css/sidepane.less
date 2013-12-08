@@ -1,11 +1,18 @@
 
 @import "chooie.less";
 
-.sidepane {
-  border: 1px solid #5bb75b;
-  padding: 4px;
+.sidepane-container{
+  float: right;
+  margin-right: 8px;
+  width: 35%;
+  height: 100%;
+  position: relative;
   background-color: #363636;
-  color: #ebebeb;
+  border-radius: 4px;
+}
+
+.sidepane {
+  padding: 4px;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -28,8 +35,9 @@
 }
 
 .sidepane-content{
+  color: #ebebeb;
   position: absolute;
-  top: 0;
+  top: 25px;
   left: 0;
   right: 0;
   bottom: @tab-container-height;
