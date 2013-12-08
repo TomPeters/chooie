@@ -50,7 +50,7 @@ namespace Chooie
             {
                 if (_memoryLog == null)
                 {
-                    _memoryLog = new MemoryLog();
+                    _memoryLog = new MemoryLog(ClientMessenger);
                 }
                 return _memoryLog;
             }
@@ -88,6 +88,20 @@ namespace Chooie
             }
         }
 
+        private IClientMessenger _clientMessenger;
+
+        private IClientMessenger ClientMessenger
+        {
+            get
+            {
+                if (_clientMessenger == null)
+                {
+                    _clientMessenger = new ClientMessenger();
+                }
+                return _clientMessenger;
+            }
+        }
+
         public void ConfigureContainer(TinyIoCContainer container)
         {
             container.Register<ILogger>(Logger);
@@ -97,7 +111,7 @@ namespace Chooie
             container.Register<IPackageList, PackageList>().AsSingleton();
             container.Register<IJobQueue, JobQueue>().AsSingleton();
 
-            container.Register<IClientMessenger, ClientMessenger>().AsSingleton();
+            container.Register<IClientMessenger>(ClientMessenger);
             container.Register(PackageManagerSettings);
             container.Register<IDatabaseManager, DatabaseManager>().AsSingleton();
             container.Register<IDatabaseAccessor, DatabaseAccessor>().AsSingleton();

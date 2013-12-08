@@ -20,7 +20,7 @@ namespace Chooie.Logging
 
         public void LogWarn(string message)
         {
-            _log.Log(CreateLogMessage(message, Severity.Warn));
+            _log.Log(CreateLogMessage(message, Severity.Warning));
         }
 
         public void LogError(string message)

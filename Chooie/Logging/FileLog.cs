@@ -34,8 +34,8 @@ namespace Chooie.Logging
             {
                 case Severity.Error:
                     return "Error";
-                case Severity.Warn:
-                    return "Warn";
+                case Severity.Warning:
+                    return "Warning";
                 case Severity.Info:
                     return "Info";
             }

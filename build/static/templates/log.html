@@ -1,3 +1,5 @@
-<div class="log">
-    Log content!
+<div class="log" ng-controller="LogController">
+    <div ng-repeat="message in logMessages">
+        {{message.Time}}: {{message.Message}}
+    </div>
 </div>

@@ -81,6 +81,7 @@
     <Compile Include="Logging\MemoryLog.cs" />
     <Compile Include="Logging\Severity.cs" />
     <Compile Include="Nancy\JobsModule.cs" />
+    <Compile Include="Nancy\LogModule.cs" />
     <Compile Include="PackageManager\ContainerFactory.cs" />
     <Compile Include="PackageManager\IPackageManagerProvider.cs" />
     <Compile Include="Launcher.cs" />
