@@ -1,9 +1,9 @@
 <div class="sidepane" ng-controller="SidepaneController">
     <div class="sidepane-content">
-        <div ng-show="jobsTabsIsDisplayed">
+        <div ng-show="jobsTabsIsDisplayed()">
             <ng-include src="'templates/jobs.html'"></ng-include>
         </div>
-        <div ng-show="logTabsIsDisplayed">
+        <div ng-show="logTabsIsDisplayed()">
             <ng-include src="'templates/log.html'"></ng-include>
         </div>
     </div>
