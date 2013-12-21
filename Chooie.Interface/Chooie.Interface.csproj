@@ -7,8 +7,8 @@
     <ProjectGuid>{7823B209-CF38-4081-BCD5-FEDD7BA22939}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Chooie.Core</RootNamespace>
-    <AssemblyName>Chooie.Core</AssemblyName>
+    <RootNamespace>Chooie.Interface</RootNamespace>
+    <AssemblyName>Chooie.Interface</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
