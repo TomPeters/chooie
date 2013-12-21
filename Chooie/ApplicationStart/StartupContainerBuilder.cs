@@ -31,13 +31,22 @@ namespace Chooie.ApplicationStart
         {
             container.Register<IClientMessenger, ClientMessenger>().AsSingleton();
             container.Register<IMemoryLog, MemoryLog>().AsSingleton();
-            container.Register<ILog>((c, p) => new CompositeLog(new List<ILog>
-                {
-                    new FileLog("log.txt"), // TODO: Don't hardcode this here - it should be a part of settings
-                    c.Resolve<IMemoryLog>()
-                }));
+            TinyIoCContainer logContainer = CreateHelperLogBuilderContainer(container);
+            var threadSafeLog = new ThreadSafeLog(logContainer.Resolve<CompositeLog>());
+            container.Register<ILog, ThreadSafeLog>(threadSafeLog);
             container.Register<ILogger>(
-                (cContainer, overloads) => new Logger(new Context("Chooie.Startup"), cContainer.Resolve<ILog>()));
+                (c, p) => new Logger(new Context("Chooie.Startup"), c.Resolve<ILog>()));
+        }
+
+        private static TinyIoCContainer CreateHelperLogBuilderContainer(TinyIoCContainer container)
+        {
+            var logContainer = new TinyIoCContainer();
+            logContainer.Register<IClientMessenger>((c, p) => container.Resolve<IClientMessenger>());
+            logContainer.Register<ILog>((c, p) => container.Resolve<IMemoryLog>());
+            logContainer.Register<FileLogFileNameProvider>();
+            logContainer.Register<ILog, FileLog>();
+            logContainer.Register<CompositeLog>().AsSingleton();
+            return logContainer;
         }
 
         private static void RegisterPluginTypes(TinyIoCContainer container)

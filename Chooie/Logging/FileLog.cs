@@ -4,16 +4,16 @@ namespace Chooie.Logging
 {
     public class FileLog : ILog
     {
-        private readonly string _fileLocation;
+        private readonly FileLogFileNameProvider _fileNameProvider;
 
-        public FileLog(string fileLocation)
+        public FileLog(FileLogFileNameProvider fileNameProvider)
         {
-            _fileLocation = fileLocation;
+            _fileNameProvider = fileNameProvider;
         }
 
         public void Log(LogMessage message)
         {
-            using (var streamWriter = File.AppendText(_fileLocation))
+            using (var streamWriter = File.AppendText(_fileNameProvider.FileName))
             {
                 streamWriter.WriteLine(GetStringFromMessage(message));
             }

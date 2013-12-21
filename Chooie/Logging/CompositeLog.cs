@@ -4,9 +4,9 @@ namespace Chooie.Logging
 {
     public class CompositeLog : ILog
     {
-        private readonly IReadOnlyList<ILog> _logs;
+        private readonly IEnumerable<ILog> _logs;
 
-        public CompositeLog(IReadOnlyList<ILog> logs)
+        public CompositeLog(IEnumerable<ILog> logs)
         {
             _logs = logs;
         }
