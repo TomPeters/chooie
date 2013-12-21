@@ -4,35 +4,23 @@ using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 using Nancy.Hosting.Self;
-using Chooie.Interface.PackageManager;
-using Chooie.PackageManager;
 
-
-namespace Chooie
+namespace Chooie.ApplicationContext
 {
-    public class ChooieApplicationContext : ApplicationContext
+    public class ChooieApplicationContext : System.Windows.Forms.ApplicationContext
     {
         private const string NotifyIconText = "Chooie";
-        private const string Uri = "http://localhost:9876/";
-        private readonly Uri _uri = new Uri(Uri);
+        private readonly string _uri;
         private readonly NancyHost _nancyHost;
         private NotifyIcon _notifyIcon;
 
-        public ChooieApplicationContext(DependencyContainerBuilder dependencyContainerBuilder)
+        public ChooieApplicationContext(NancyHost nancyHost, string uri)
         {
-            dependencyContainerBuilder.Logger.LogInfo("Configuring system tray icon");
-            Initialize();
-
-            dependencyContainerBuilder.Logger.LogInfo("Configuring web server");
-            var hostConfiguration = new HostConfiguration();
-            hostConfiguration.UrlReservations.CreateAutomatically = true;
-            _nancyHost = new NancyHost(new ChooieBootstrapper(dependencyContainerBuilder), hostConfiguration, _uri);
-
-            dependencyContainerBuilder.Logger.LogInfo("Starting web server");
-            _nancyHost.Start();
+            _nancyHost = nancyHost;
+            _uri = uri;
         }
 
-        private void Initialize()
+        public void Initialize()
         {
             var components = new Container();
             var contextMenuStrip = new ContextMenuStrip();
@@ -55,7 +43,7 @@ namespace Chooie
 
         private void OnDoubleClick(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(Uri);
+            System.Diagnostics.Process.Start(_uri);
         }
 
         protected override void ExitThreadCore()

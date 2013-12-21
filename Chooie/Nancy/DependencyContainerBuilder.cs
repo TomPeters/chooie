@@ -8,9 +8,9 @@ using Chooie.PackageManager;
 using Chooie.SignalR;
 using Nancy.TinyIoc;
 
-namespace Chooie
+namespace Chooie.Nancy
 {
-    public class DependencyContainerBuilder
+    public class NancyDependencyContainerBuilder
     {
         private PackageManagerSettings _packageManagerSettings;
 

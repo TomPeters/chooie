@@ -1,10 +1,26 @@
 ﻿using System.IO;
+using Chooie.Interface.Logging;
 
 namespace Chooie.Database
 {
     public class DatabaseAccessor : IDatabaseAccessor
     {
+        private readonly ILogger _logger;
         public const string DatabaseFile = "db.txt";
+
+        public DatabaseAccessor(ILogger logger)
+        {
+            _logger = logger;
+        }
+
+        public void SetupDatabase()
+        {
+            if (!File.Exists(DatabaseFile))
+            {
+                _logger.LogInfo("Creating database");
+                using (File.AppendText(DatabaseFile)) {}
+            }
+        }
 
         public string ReadDatabase()
         {

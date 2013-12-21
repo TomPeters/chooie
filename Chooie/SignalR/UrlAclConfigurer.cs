@@ -3,7 +3,7 @@ using Nancy.Hosting.Self;
 
 namespace Chooie.SignalR
 {
-    internal class UrlAclConfigurer
+    public class UrlAclConfigurer
     {
         public void ConfigureUrl(string url)
         {
