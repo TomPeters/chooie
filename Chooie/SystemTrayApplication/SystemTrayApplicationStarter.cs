@@ -2,19 +2,18 @@
 using Chooie.ApplicationStart;
 using Chooie.Interface.Logging;
 using Chooie.Nancy;
-using Nancy.Hosting.Self;
 
-namespace Chooie.ApplicationContext
+namespace Chooie.SystemTrayApplication
 {
-    public class ChooieSystemTrayApplicationStarter : IStarter
+    public class SystemTrayApplicationStarter : IStarter
     {
-        private readonly NancyHost _nancyHost;
+        private readonly NancyHostProvider _nancyHostProvider;
         private readonly NancyBaseUriProvider _nancyBaseUriProvider;
         private readonly ILogger _logger;
 
-        public ChooieSystemTrayApplicationStarter(NancyHost nancyHost, NancyBaseUriProvider nancyBaseUriProvider, ILogger logger)
+        public SystemTrayApplicationStarter(NancyHostProvider nancyHostProvider, NancyBaseUriProvider nancyBaseUriProvider, ILogger logger)
         {
-            _nancyHost = nancyHost;
+            _nancyHostProvider = nancyHostProvider;
             _nancyBaseUriProvider = nancyBaseUriProvider;
             _logger = logger;
         }
@@ -22,7 +21,7 @@ namespace Chooie.ApplicationContext
         public void Start()
         {
             _logger.LogInfo("Configuring system tray icon");
-            var applicationContext = new ChooieApplicationContext(_nancyHost, _nancyBaseUriProvider.Url);
+            var applicationContext = new SystemTrayApplicationContext(_nancyHostProvider.NancyHost, _nancyBaseUriProvider.Url);
             applicationContext.Initialize();
 
             _logger.LogInfo("Starting chooie (entering main loop)");

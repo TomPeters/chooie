@@ -4,13 +4,13 @@ using Nancy.TinyIoc;
 
 namespace Chooie.Nancy
 {
-    public class ChooieBootstrapper : DefaultNancyBootstrapper
+    public class Bootstrapper : DefaultNancyBootstrapper
     {
-        private readonly NancyDependencyContainerBuilder _nancyDependencyContainerBuilder;
+        private readonly NancyContainerBuilder _nancyContainerBuilder;
 
-        public ChooieBootstrapper(NancyDependencyContainerBuilder nancyDependencyContainerBuilder)
+        public Bootstrapper(NancyContainerBuilder nancyContainerBuilder)
         {
-            _nancyDependencyContainerBuilder = nancyDependencyContainerBuilder;
+            _nancyContainerBuilder = nancyContainerBuilder;
         }
 
         protected override void ConfigureConventions(NancyConventions nancyConventions)
@@ -23,7 +23,7 @@ namespace Chooie.Nancy
 
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
-            _nancyDependencyContainerBuilder.ConfigureContainer(container);
+            _nancyContainerBuilder.ConfigureContainer(container);
         }
     }
 }

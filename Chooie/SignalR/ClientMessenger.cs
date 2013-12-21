@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNet.SignalR;
-using Nancy;
 
 namespace Chooie.SignalR
 {

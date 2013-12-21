@@ -8,9 +8,9 @@ namespace Chooie.PackageManager
     public class PackageList : IPackageList
     {
         private readonly IDatabaseManager _databaseManager;
-        private readonly PackageManagerSettings _packageManagerSettings;
+        private readonly IPackageManagerSettings _packageManagerSettings;
 
-        public PackageList(IDatabaseManager databaseManager, PackageManagerSettings packageManagerSettings)
+        public PackageList(IDatabaseManager databaseManager, IPackageManagerSettings packageManagerSettings)
         {
             _databaseManager = databaseManager;
             _packageManagerSettings = packageManagerSettings;

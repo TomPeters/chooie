@@ -1,7 +1,7 @@
 ﻿using Chooie.Logging;
 using Nancy;
 
-namespace Chooie.Nancy
+namespace Chooie.Nancy.Modules
 {
     public class LogModule : NancyModule
     {

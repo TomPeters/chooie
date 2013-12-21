@@ -5,9 +5,6 @@ namespace Chooie.ApplicationStart
 {
     public static class Launcher
     {
-        private const string Url = "http://localhost:9876/";
-        private static readonly Uri Uri = new Uri(Url);
-
         public static void Main(string[] args)
         {
             var startupContainer = new StartupContainerFactory().CreateStartupContainer();

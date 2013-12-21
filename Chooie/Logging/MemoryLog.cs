@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Chooie.SignalR;
-using Nancy.Responses;
 using Newtonsoft.Json;
 
 namespace Chooie.Logging

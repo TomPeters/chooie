@@ -1,10 +1,9 @@
-﻿using System;
-using Nancy;
+﻿using Nancy;
 using Nancy.ModelBinding;
 using Chooie.Interface;
 using Chooie.PackageManager;
 
-namespace Chooie.Nancy
+namespace Chooie.Nancy.Modules
 {
     public class PackagesModule : NancyModule
     {

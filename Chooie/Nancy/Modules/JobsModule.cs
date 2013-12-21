@@ -1,7 +1,7 @@
 ﻿using Nancy;
 using Chooie.Jobs;
 
-namespace Chooie.Nancy
+namespace Chooie.Nancy.Modules
 {
     public class JobsModule : NancyModule
     {

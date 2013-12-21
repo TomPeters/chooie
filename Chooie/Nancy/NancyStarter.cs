@@ -1,24 +1,23 @@
 ﻿using Chooie.ApplicationStart;
 using Chooie.Interface.Logging;
-using Nancy.Hosting.Self;
 
 namespace Chooie.Nancy
 {
     public class NancyStarter : IStarter
     {
-        private readonly NancyHost _nancyHost;
+        private readonly NancyHostProvider _nancyHostProvider;
         private readonly ILogger _logger;
 
-        public NancyStarter(NancyHost nancyHost, ILogger logger)
+        public NancyStarter(NancyHostProvider nancyHostProvider, ILogger logger)
         {
-            _nancyHost = nancyHost;
+            _nancyHostProvider = nancyHostProvider;
             _logger = logger;
         }
 
         public void Start()
         {
             _logger.LogInfo("Starting web server");
-            _nancyHost.Start();
+            _nancyHostProvider.NancyHost.Start();
         }
     }
 }

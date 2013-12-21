@@ -2,7 +2,7 @@
 
 namespace Chooie.Nancy
 {
-    public class ChooieHostConfigurationProvider
+    public class HostConfigurationProvider
     {
         public HostConfiguration HostConfiguration
         {

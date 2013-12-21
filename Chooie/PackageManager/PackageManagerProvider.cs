@@ -1,61 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Linq;
+﻿using System.Linq;
 using Chooie.Interface.PackageManager;
-using Chooie.Interface.TinyIoC;
+using Chooie.Plugin;
 
 namespace Chooie.PackageManager
 {
     public class PackageManagerProvider : IPackageManagerProvider
     {
-        private readonly ContainerFactory _containerFactory;
-        private readonly AssemblyLoader _assemblyLoader;
-        private readonly IDictionary<string, TinyIoCContainer> _containers = new Dictionary<string, TinyIoCContainer>(); 
+        private readonly IPluginContainerProvider _pluginContainerProvider;
+        private readonly IPluginNameProvider _pluginNameProvider;
 
-        public PackageManagerProvider(ContainerFactory containerFactory, AssemblyLoader assemblyLoader)
+        public PackageManagerProvider(IPluginContainerProvider pluginContainerProvider, IPluginNameProvider pluginNameProvider)
         {
-            _containerFactory = containerFactory;
-            _assemblyLoader = assemblyLoader;
-        }
-
-        public void BuildContainers()
-        {
-            IEnumerable<Assembly> assemblies = _assemblyLoader.LoadAllAssembliesInDirectory();
-
-            IEnumerable<Assembly> packageManagerAssemblies = assemblies.Where(IsPackageManagerAssembly);
-            foreach (Assembly assembly in packageManagerAssemblies)
-            {
-                _containers[assembly.GetName().Name] = _containerFactory.BuildContainer(assembly);
-            }
-        }
-
-        private bool IsPackageManagerAssembly(Assembly assembly)
-        {
-            IEnumerable<Type> types = GetAssemblyTypes(assembly);
-            return types.Count(t => ContainerFactory.PackageManagerModuleType.IsAssignableFrom(t)) == 1;
-        }
-
-        private static IEnumerable<Type> GetAssemblyTypes(Assembly assembly)
-        {
-            try
-            {
-                return assembly.GetTypes();
-            }
-            catch (Exception)
-            {
-                return new List<Type>();
-            }
+            _pluginContainerProvider = pluginContainerProvider;
+            _pluginNameProvider = pluginNameProvider;
         }
 
         public IPackageManager GetPackageManager(string packageManager)
         {
-            return _containers[packageManager].Resolve<IPackageManager>();
+            return _pluginContainerProvider.GetContainerForAssembly(packageManager).Resolve<IPackageManager>();
         }
 
-        public string GetInitialPackageManagerType()
+        public string GetFirstPackageManagerName()
         {
-            return _containers.First().Key;
+            return _pluginNameProvider.PluginNames.First();
         }
     }
 }

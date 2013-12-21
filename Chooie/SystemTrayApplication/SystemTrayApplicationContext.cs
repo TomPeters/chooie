@@ -5,16 +5,16 @@ using System.Reflection;
 using System.Windows.Forms;
 using Nancy.Hosting.Self;
 
-namespace Chooie.ApplicationContext
+namespace Chooie.SystemTrayApplication
 {
-    public class ChooieApplicationContext : System.Windows.Forms.ApplicationContext
+    public class SystemTrayApplicationContext : ApplicationContext
     {
         private const string NotifyIconText = "Chooie";
         private readonly string _uri;
         private readonly NancyHost _nancyHost;
         private NotifyIcon _notifyIcon;
 
-        public ChooieApplicationContext(NancyHost nancyHost, string uri)
+        public SystemTrayApplicationContext(NancyHost nancyHost, string uri)
         {
             _nancyHost = nancyHost;
             _uri = uri;

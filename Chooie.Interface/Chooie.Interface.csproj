@@ -43,7 +43,7 @@
     <Compile Include="Package.cs" />
     <Compile Include="PackageManager\IPackageManager.cs" />
     <Compile Include="PackageManager\IPackageManagerModule.cs" />
-    <Compile Include="PackageManager\PackageManagerSettings.cs" />
+    <Compile Include="PackageManager\IPackageManagerSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TinyIoC\TinyIoCContainer.cs" />
   </ItemGroup>

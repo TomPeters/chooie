@@ -5,26 +5,27 @@ namespace Chooie.Database
 {
     public class DatabaseAccessor : IDatabaseAccessor
     {
+        private readonly DatabaseFileNameProvider _databaseFileNameProvider;
         private readonly ILogger _logger;
-        public const string DatabaseFile = "db.txt";
 
-        public DatabaseAccessor(ILogger logger)
+        public DatabaseAccessor(DatabaseFileNameProvider databaseFileNameProvider, ILogger logger)
         {
+            _databaseFileNameProvider = databaseFileNameProvider;
             _logger = logger;
         }
 
         public void SetupDatabase()
         {
-            if (!File.Exists(DatabaseFile))
+            if (!File.Exists(_databaseFileNameProvider.FileName))
             {
                 _logger.LogInfo("Creating database");
-                using (File.AppendText(DatabaseFile)) {}
+                using (File.AppendText(_databaseFileNameProvider.FileName)) {}
             }
         }
 
         public string ReadDatabase()
         {
-            var file = new StreamReader(DatabaseFile);
+            var file = new StreamReader(_databaseFileNameProvider.FileName);
             var json = file.ReadToEnd();
             file.Close();
             return json;
@@ -32,7 +33,7 @@ namespace Chooie.Database
 
         public void WriteToDatabase(string databaseJson)
         {
-            File.WriteAllText(DatabaseFile, databaseJson);
+            File.WriteAllText(_databaseFileNameProvider.FileName, databaseJson);
         }
     }
 }

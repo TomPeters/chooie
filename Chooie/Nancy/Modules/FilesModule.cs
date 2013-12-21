@@ -1,6 +1,6 @@
 ﻿using Nancy;
 
-namespace Chooie.Nancy
+namespace Chooie.Nancy.Modules
 {
     public class FilesModule : NancyModule
     {

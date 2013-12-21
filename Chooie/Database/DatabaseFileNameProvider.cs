@@ -1,8 +1,8 @@
 ﻿namespace Chooie.Database
 {
-    public class DatabaseFileProvider
+    public class DatabaseFileNameProvider
     {
-        public string File
+        public string FileName
         {
             get { return "db.txt"; }
         }

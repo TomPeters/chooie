@@ -7,21 +7,22 @@ using Chooie.Interface.Logging;
 using Chooie.Interface.PackageManager;
 using Chooie.Interface.TinyIoC;
 using Chooie.Logging;
+using Chooie.Plugin;
 
 namespace Chooie.PackageManager
 {
-    public class ContainerFactory
+    public class PackageManagerContainerFactory : IContainerFactory
     {
         private readonly ILog _log;
         public static readonly Type PackageManagerModuleType = typeof(IPackageManagerModule);
         private static readonly Type PackageManagerType = typeof (IPackageManager);
 
-        public ContainerFactory(ILog log)
+        public PackageManagerContainerFactory(ILog log)
         {
             _log = log;
         }
 
-        public TinyIoCContainer BuildContainer(Assembly assembly)
+        public TinyIoCContainer CreateContainerForAssembly(Assembly assembly)
         {
             IPackageManagerModule module = CreateModule(assembly);
             Type packageManagerType = module.PackageManagerType;

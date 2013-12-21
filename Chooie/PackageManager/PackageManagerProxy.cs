@@ -10,13 +10,13 @@ namespace Chooie.PackageManager
     public class PackageManagerProxy : IPackageManagerProxy
     {
         private readonly IPackageManagerProvider _packageManagerProvider;
-        private readonly PackageManagerSettings _packageManagerSettings;
+        private readonly IPackageManagerSettings _packageManagerSettings;
         private readonly IClientMessenger _clientMessenger;
         private readonly IJobQueue _jobQueue;
         private readonly IPackageList _packageList;
 
         public PackageManagerProxy(IPackageManagerProvider packageManagerProvider, 
-            PackageManagerSettings packageManagerSettings, 
+            IPackageManagerSettings packageManagerSettings, 
             IClientMessenger clientMessenger, 
             IJobQueue jobQueue,
             IPackageList packageList)

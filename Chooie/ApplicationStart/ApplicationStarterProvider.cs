@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
-using Chooie.ApplicationContext;
 using Chooie.Database;
 using Chooie.Interface.TinyIoC;
 using Chooie.Nancy;
+using Chooie.Plugin;
 using Chooie.SignalR;
+using Chooie.SystemTrayApplication;
 
 namespace Chooie.ApplicationStart
 {
@@ -20,10 +21,11 @@ namespace Chooie.ApplicationStart
         {
             get
             {
+                yield return _container.Resolve<PluginStarter>();
                 yield return _container.Resolve<SignalRStarter>();
                 yield return _container.Resolve<DatabaseStarter>();
                 yield return _container.Resolve<NancyStarter>();
-                yield return _container.Resolve<ChooieSystemTrayApplicationStarter>();
+                yield return _container.Resolve<SystemTrayApplicationStarter>();
             }
         }
     }
