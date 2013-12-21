@@ -1,6 +1,13 @@
 angular.module('chooie').controller("LogController", ['$scope', 'LogService', 'ClientMessenger',
     function($scope, logService, clientMessenger) {
 
+        var getDateFromLogTimeString = function(timeString) {
+            if(timeString.indexOf("/Date") !== -1) {
+                return new Date(parseInt(timeString.replace("/Date(", "").replace(")/",""), 10))
+            }
+            return new Date(timeString);
+        };
+
         var createLogViewModel = function(logMessage) {
             switch(logMessage.Severity) {
                 case 0:
@@ -15,7 +22,7 @@ angular.module('chooie').controller("LogController", ['$scope', 'LogService', 'C
                 default:
                     logMessage.Severity = "Unknown";
             }
-            var time = new Date(parseInt(logMessage.Time.replace("/Date(", "").replace(")/",""), 10));
+            var time = getDateFromLogTimeString(logMessage.Time);
             logMessage.Time = time.toLocaleTimeString();
             return logMessage;
         };
