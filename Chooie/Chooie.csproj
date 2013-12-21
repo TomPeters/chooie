@@ -67,7 +67,7 @@
     <Compile Include="Database\IDatabaseAccessor.cs" />
     <Compile Include="Database\IDatabaseManager.cs" />
     <Compile Include="Nancy\HostConfigurationProvider.cs" />
-    <Compile Include="Nancy\DependencyContainerBuilder.cs" />
+    <Compile Include="Nancy\NancyContainerBuilder.cs" />
     <Compile Include="ApplicationStart\IStarter.cs" />
     <Compile Include="Jobs\IJob.cs" />
     <Compile Include="Jobs\IJobFactory.cs" />
