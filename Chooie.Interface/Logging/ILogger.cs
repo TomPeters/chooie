@@ -1,4 +1,4 @@
-﻿namespace Chooie.Core.Logging
+﻿namespace Chooie.Interface.Logging
 {
     public interface ILogger
     {

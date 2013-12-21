@@ -1,5 +1,5 @@
 ﻿using System;
-using Chooie.Core.Logging;
+using Chooie.Interface.Logging;
 
 namespace Chooie.Jobs
 {

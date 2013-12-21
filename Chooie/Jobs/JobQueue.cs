@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using Chooie.Core.Logging;
+using Chooie.Interface.Logging;
 
 namespace Chooie.Jobs
 {

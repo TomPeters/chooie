@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Chooie.Core;
-using Chooie.Core.PackageManager;
+using Chooie.Interface;
+using Chooie.Interface.PackageManager;
 using Chooie.Jobs;
 using Chooie.SignalR;
 

@@ -1,7 +1,7 @@
 ﻿using System;
-using Chooie.Core.TinyIoC;
+using Chooie.Interface.TinyIoC;
 
-namespace Chooie.Core.PackageManager
+namespace Chooie.Interface.PackageManager
 {
     public interface IPackageManagerModule
     {

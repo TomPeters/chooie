@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 using Nancy.Hosting.Self;
-using Chooie.Core.PackageManager;
+using Chooie.Interface.PackageManager;
 using Chooie.PackageManager;
 
 

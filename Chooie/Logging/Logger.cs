@@ -1,4 +1,4 @@
-﻿using Chooie.Core.Logging;
+﻿using Chooie.Interface.Logging;
 
 namespace Chooie.Logging
 {

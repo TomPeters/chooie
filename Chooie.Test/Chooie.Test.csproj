@@ -67,6 +67,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Chooie.Interface\Chooie.Interface.csproj">
+      <Project>{7823b209-cf38-4081-bcd5-fedd7ba22939}</Project>
+      <Name>Chooie.Interface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Chooie\Chooie.csproj">
       <Project>{8ff71f59-029b-4080-a6ff-cad83cbbc023}</Project>
       <Name>Chooie</Name>

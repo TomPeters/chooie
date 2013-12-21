@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Chooie.Core;
+using Chooie.Interface;
 
 namespace Chooie.PackageManager
 {

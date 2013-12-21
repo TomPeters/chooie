@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Chooie.Core
+namespace Chooie.Interface
 {
     public class Package
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Chooie.Core.PackageManager
+namespace Chooie.Interface.PackageManager
 {
     public interface IPackageManager
     {

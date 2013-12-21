@@ -145,12 +145,6 @@
     <EmbeddedResource Include="assets\Chooie.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Chooie.Core\Chooie.Core.csproj">
-      <Project>{7823b209-cf38-4081-bcd5-fedd7ba22939}</Project>
-      <Name>Chooie.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
@@ -174,7 +168,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Chooie.Interface\Chooie.Interface.csproj">
+      <Project>{7823b209-cf38-4081-bcd5-fedd7ba22939}</Project>
+      <Name>Chooie.Interface</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

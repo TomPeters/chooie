@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Chooie.Core;
-using Chooie.Core.PackageManager;
+using Chooie.Interface;
+using Chooie.Interface.PackageManager;
 using Chooie.Database;
 
 namespace Chooie.PackageManager

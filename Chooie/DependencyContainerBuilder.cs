@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Chooie.Core.Logging;
-using Chooie.Core.PackageManager;
+using Chooie.Interface.Logging;
+using Chooie.Interface.PackageManager;
 using Chooie.Database;
 using Chooie.Jobs;
 using Chooie.Logging;

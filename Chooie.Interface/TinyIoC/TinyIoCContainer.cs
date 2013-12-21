@@ -66,7 +66,7 @@
 #endif
 
 #endregion
-namespace Chooie.Core.TinyIoC
+namespace Chooie.Interface.TinyIoC
 {
     using System;
     using System.Collections.Generic;

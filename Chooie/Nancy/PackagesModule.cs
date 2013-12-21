@@ -1,7 +1,7 @@
 ﻿using System;
 using Nancy;
 using Nancy.ModelBinding;
-using Chooie.Core;
+using Chooie.Interface;
 using Chooie.PackageManager;
 
 namespace Chooie.Nancy

@@ -3,9 +3,9 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Reflection;
 using System.Linq;
-using Chooie.Core.Logging;
-using Chooie.Core.PackageManager;
-using Chooie.Core.TinyIoC;
+using Chooie.Interface.Logging;
+using Chooie.Interface.PackageManager;
+using Chooie.Interface.TinyIoC;
 using Chooie.Logging;
 
 namespace Chooie.PackageManager

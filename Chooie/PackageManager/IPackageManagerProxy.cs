@@ -1,4 +1,4 @@
-﻿using Chooie.Core.PackageManager;
+﻿using Chooie.Interface.PackageManager;
 
 namespace Chooie.PackageManager
 {

@@ -1,4 +1,4 @@
-﻿namespace Chooie.Core.PackageManager
+﻿namespace Chooie.Interface.PackageManager
 {
     public class PackageManagerSettings
     {
