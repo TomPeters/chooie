@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Logging\FileLogFileNameProvider.cs" />
     <Compile Include="Logging\ThreadSafeLog.cs" />
+    <Compile Include="PluginHelpers\ShellCommandRunner.cs" />
     <Compile Include="SystemTrayApplication\SystemTrayApplicationContext.cs" />
     <Compile Include="SystemTrayApplication\SystemTrayApplicationStarter.cs" />
     <Compile Include="ApplicationStart\ApplicationStarter.cs" />

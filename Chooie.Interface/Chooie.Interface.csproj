@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\ShellCommandRunner.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Package.cs" />
     <Compile Include="PackageManager\IPackageManager.cs" />

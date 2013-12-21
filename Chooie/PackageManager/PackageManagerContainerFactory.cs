@@ -3,11 +3,13 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Reflection;
 using System.Linq;
+using Chooie.Interface.Helpers;
 using Chooie.Interface.Logging;
 using Chooie.Interface.PackageManager;
 using Chooie.Interface.TinyIoC;
 using Chooie.Logging;
 using Chooie.Plugin;
+using Chooie.PluginHelpers;
 
 namespace Chooie.PackageManager
 {
@@ -36,8 +38,8 @@ namespace Chooie.PackageManager
                 throw new ConfigurationException("Package Manager should not be manually configured in the dependency injection container");
             }
             container.Register(PackageManagerType, packageManagerType);
-            var logger = new Logger(new Context(packageManagerType.ToString()), _log);
-            container.Register<ILogger>(logger);
+            container.Register<ILogger>((c, p) => new Logger(new Context(packageManagerType.ToString()), _log));
+            container.Register<IShellCommandRunner, ShellCommandRunner>();
             return container;
         }
 
