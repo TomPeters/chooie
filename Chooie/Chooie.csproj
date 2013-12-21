@@ -110,7 +110,7 @@
     <Compile Include="Plugin\IPluginJudge.cs" />
     <Compile Include="Plugin\IPluginNameProvider.cs" />
     <Compile Include="Plugin\PluginContainerBuilder.cs" />
-    <Compile Include="Plugin\PluginContainerProvider.cs" />
+    <Compile Include="Plugin\IPluginContainerProvider.cs" />
     <Compile Include="Plugin\PluginStarter.cs" />
     <Compile Include="SignalR\SignalRStarter.cs" />
     <Compile Include="SignalR\ClientMessenger.cs" />
