@@ -11,5 +11,14 @@ namespace Chooie.Interface
         {
             return Name;
         }
+
+        public Package Clone()
+        {
+            return new Package
+                {
+                    Name = Name,
+                    CurrentVersion = CurrentVersion
+                };
+        }
     }
 }

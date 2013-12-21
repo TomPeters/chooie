@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Chooie.Interface;
 using Chooie.Interface.PackageManager;
@@ -13,18 +14,21 @@ namespace Chooie.PackageManager
         private readonly IPackageManagerSettings _packageManagerSettings;
         private readonly IClientMessenger _clientMessenger;
         private readonly IJobQueue _jobQueue;
+        private readonly IJobFactory _jobFactory;
         private readonly IPackageList _packageList;
 
         public PackageManagerProxy(IPackageManagerProvider packageManagerProvider, 
             IPackageManagerSettings packageManagerSettings, 
             IClientMessenger clientMessenger, 
             IJobQueue jobQueue,
+            IJobFactory jobFactory,
             IPackageList packageList)
         {
             _packageManagerProvider = packageManagerProvider;
             _packageManagerSettings = packageManagerSettings;
             _clientMessenger = clientMessenger;
             _jobQueue = jobQueue;
+            _jobFactory = jobFactory;
             _packageList = packageList;
         }
 
@@ -43,21 +47,27 @@ namespace Chooie.PackageManager
 
         public void InstallPackage(Package package)
         {
-            _jobQueue.EnqueueJob("Installing Package: " + package.Name, () => PackageManager.InstallPackage(package));
+            var threadSafePackage = package.Clone();
+            _jobQueue.EnqueueJob(_jobFactory.CreateJob("Installing Package: " + package.Name, () => PackageManager.InstallPackage(threadSafePackage)));
         }
 
         public void UninstallPackage(Package package)
         {
-            _jobQueue.EnqueueJob("Uninstalling Package: " + package.Name, () => PackageManager.UninstallPackage(package));
+            var threadSafePackage = package.Clone();
+            _jobQueue.EnqueueJob(_jobFactory.CreateJob("Uninstalling Package: " + package.Name, () => PackageManager.UninstallPackage(threadSafePackage)));
         }
 
         public void UpdatePackages()
         {
-            _jobQueue.EnqueueJob("Update Packages", () =>
+            List<Package> packageList = null;
+            Action threadedPackageRetrievalAction = () => { packageList = PackageManager.Packages.ToList(); };
+            Action postRunAction = () =>
                 {
-                    _packageList.Packages = PackageManager.Packages.ToList();
+                    _packageList.Packages = packageList;
                     _clientMessenger.SendMessage("Packages", "Updated");
-                });
+                };
+            var job = _jobFactory.CreateJobWithPostRunAction("Update Packages", threadedPackageRetrievalAction, postRunAction);
+            _jobQueue.EnqueueJob(job);
         }
     }
 }

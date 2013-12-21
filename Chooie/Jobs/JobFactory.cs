@@ -18,5 +18,11 @@ namespace Chooie.Jobs
         {
             return new Job(name, action, _jobListUpdater, _logger);
         }
+
+        // Post run actions are performed synchronously in the main thread
+        public IJob CreateJobWithPostRunAction(string name, Action action, Action postRunAction)
+        {
+            return new Job(name, action, postRunAction, _jobListUpdater, _logger);
+        }
     }
 }

@@ -1,8 +1,10 @@
-﻿namespace Chooie.Jobs
+﻿using System.Threading.Tasks;
+
+namespace Chooie.Jobs
 {
     public interface IJob
     {
-        void Run();
+        Task RunAsync();
         string Name { get; }
         JobState State { get; }
     }
